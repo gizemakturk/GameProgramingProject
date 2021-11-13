@@ -1,0 +1,2 @@
+C:\Users\Ozan\Desktop\GameProject-main\GameProject2\obj\Debug\UnityEditor.UI.csproj.AssemblyReference.cache
+C:\Users\Ozan\Desktop\GameProject-main\GameProject2\obj\Debug\UnityEditor.UI.csproj.CoreCompileInputs.cache

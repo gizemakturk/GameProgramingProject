@@ -1,0 +1,2 @@
+C:\Users\Ozan\Desktop\GameProject-main\GameProject2\obj\Debug\Unity.TextMeshPro.Editor.csproj.CoreCompileInputs.cache
+C:\Users\Ozan\Desktop\GameProject-main\GameProject2\obj\Debug\Unity.TextMeshPro.Editor.csproj.AssemblyReference.cache

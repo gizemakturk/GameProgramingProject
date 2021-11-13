@@ -1,0 +1,2 @@
+C:\Users\Ozan\Desktop\GameProject-main\GameProject2\obj\Debug\Unity.InternalAPIEditorBridge.001.csproj.AssemblyReference.cache
+C:\Users\Ozan\Desktop\GameProject-main\GameProject2\obj\Debug\Unity.InternalAPIEditorBridge.001.csproj.CoreCompileInputs.cache
