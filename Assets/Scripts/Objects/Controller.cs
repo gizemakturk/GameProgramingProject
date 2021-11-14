@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Controller : MonoBehaviour
+public abstract class Controller : MonoBehaviour
 {
 
    //public string name;
@@ -18,17 +18,8 @@ public class Controller : MonoBehaviour
         
     }
 
+    protected abstract void Init();
 
-
-    protected void Init()
-    {
-
-    }
-
-    protected void Tick()
-    {
-
-
-    }
+    protected abstract void Tick();
 
 }

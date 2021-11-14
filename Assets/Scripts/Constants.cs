@@ -6,8 +6,14 @@ using UnityEngine;
 public class Constants
 {
 
+
+    //limitations
+    public readonly static float MAX_SPEED = 10;
+
+
+
     //layers
-    
+
 
     //tags
     public readonly static string playerTag = "Player";

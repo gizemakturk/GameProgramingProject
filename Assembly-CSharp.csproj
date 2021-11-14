@@ -86,9 +86,6 @@
     <Compile Include="Assets\Scripts\Cooldown.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Res\Pixel Heart Animation GIFs &amp; Spritesheets, 32x32 and 16x16\PLEASE READ ME FIRST!.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.20f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

@@ -6,12 +6,12 @@ public class GhostGround : MonoBehaviour
 {
 
 
-    private Collider2D collider;
+    private CompositeCollider2D collider;
 
     // Start is called before the first frame update
     private void Start()
     {
-        collider = GetComponent<Collider2D>();
+        collider = GetComponent<CompositeCollider2D>();
     }
 
 
@@ -51,7 +51,7 @@ public class GhostGround : MonoBehaviour
 
     }
 
-    private float fixerF = 0.02f;
+    private readonly float fixerF = 0.02f;
     private float fixer = 0.02f;
 
     private void OnCollisionStay2D(Collision2D collision)

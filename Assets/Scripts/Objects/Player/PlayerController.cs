@@ -19,69 +19,65 @@ public class PlayerController : Controller
 
     private float cdJump = 200;
     private Cooldown jumpCooldown;
-    private float cdInput = 400;
-    private Cooldown inputCooldown;
 
 
     //-----------------
 
 
 
-    private void Start()
+    protected override void Tick()
     {
 
-        inputCooldown = new Cooldown(cdInput);
+        AnimatorMethod();
+        if (damageability.Alive == false)
+        {
+
+            return;
+        }
+
+        if (damageability.damagedFlag)
+        {
+            UpdateHpBar();
+            CurrentHp = damageability.currentHp;
+        }
+
+
+        InputMethod();
+    }
+
+    protected override void Init()
+    {
         jumpCooldown = new Cooldown(cdJump);
         movement = GetComponent<PlayerMovement>();
         damageability = GetComponent<PlayerDamageability>();
         animation = GetComponent<PlayerAnimation>();
 
         damageability.currentHp = CurrentHp;
+        UpdateHpBar();
+    }
 
+
+    private void Start()
+    {
+
+
+        Init();
 
     }
 
 
-    private bool waitForinput;
     
     private void FixedUpdate()
     {
 
+        Tick();
 
-        
-        AnimatorMethod();
-        if (damageability.Alive == false) {
-            
-            return;
-        }
-
-        if (damageability.damagedFlag2)
-        {
-            UpdateHpBar();
-            CurrentHp = damageability.currentHp;
-            waitForinput = true;
-            damageability.damagedFlag2 = false;
-            inputCooldown = null;
-        }
-
-        if (waitForinput)
-        {
-            if (GetInputCooldown().Control())
-            {
-                waitForinput = false;
-            }
-        }
-        else
-        {
-            InputMethod();
-        }
-            
 
     }
 
 
 
-
+    // This method getting input from player
     public void InputMethod()
     {
 
@@ -107,7 +103,7 @@ public class PlayerController : Controller
     }
 
 
-
+    //This method control PlayerAnimator class
     public void AnimatorMethod() {
 
 
@@ -132,7 +128,7 @@ public class PlayerController : Controller
     }
 
 
-    // CAMERA AYARLARI
+    // CAMERA SETTINGS
     public static float dampTime = 0.15f;
     private static Vector3 velocity = Vector3.zero;
     public static Camera camera;
@@ -140,7 +136,7 @@ public class PlayerController : Controller
     private void Update()
     {
 
-        // kamera takip etmeyi býrakýr
+        // leaves camera tracking
         if (!damageability.Alive) {
             return;
         }
@@ -207,12 +203,7 @@ public class PlayerController : Controller
             jumpCooldown = new Cooldown(cdJump);
         return jumpCooldown;
     }
-    private Cooldown GetInputCooldown()
-    {
-        if (inputCooldown == null)
-            inputCooldown = new Cooldown(cdInput);
-        return inputCooldown;
-    }
+
 
 
     //--------------

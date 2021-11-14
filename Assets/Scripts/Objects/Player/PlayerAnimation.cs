@@ -35,18 +35,8 @@ public class PlayerAnimation : Animation
 
 
     
-    private Cooldown GetBlinkCooldown()
-    {
-        if (blinkCooldown == null)
-        {
-            blinkCooldown = new Cooldown(1000);
-        }
 
-        return blinkCooldown;
-
-    }
-
-
+    // This method blink player when it get damage
     private void Blink()
     {
 
@@ -103,6 +93,17 @@ public class PlayerAnimation : Animation
 
     }
 
+
+    private Cooldown GetBlinkCooldown()
+    {
+        if (blinkCooldown == null)
+        {
+            blinkCooldown = new Cooldown(1000);
+        }
+
+        return blinkCooldown;
+
+    }
 
 
 }

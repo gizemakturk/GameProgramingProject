@@ -23,7 +23,7 @@ public class EnemyAttack : Attack
 
 
 
-        if (attack)
+        if (active)
         {
 
             string tag = collision.gameObject.tag;

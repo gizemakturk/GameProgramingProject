@@ -1409,6 +1409,15 @@ public:
 };
 
 
+// UnityEngine.CompositeCollider2D
+struct CompositeCollider2D_tFEE36FCBB44A7A893697E113323B78808D86AF35  : public Collider2D_tDDBF081328B83D21D0BA3B5036D77B32528BA722
+{
+public:
+
+public:
+};
+
+
 // UnityEngine.FixedJoint2D
 struct FixedJoint2D_t10F73F143ADF2B0B4E74C2CC34E2E76D6E216C44  : public AnchoredJoint2D_t8A1A37750EDCE150B7CF1F1525D604C221716300
 {
@@ -1994,6 +2003,14 @@ IL_002a:
 		return L_6;
 	}
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif

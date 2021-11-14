@@ -8,7 +8,7 @@ public abstract class Attack :MonoBehaviour, Feature
 
 
     //---------Attributes--------------
-    public bool attack = true;
+    public bool active = true;
     public float tossing;
     public float tossingUp;
     public int attackPower;
@@ -61,27 +61,24 @@ public abstract class Attack :MonoBehaviour, Feature
 
 
 
-        if (attack)
+        if (!active)
+            return;
+
+        string tag = collision.gameObject.tag;
+        if (GiveDamageTag(tag))
         {
-
-            string tag = collision.gameObject.tag;
-            if (GiveDamageTag(tag))
-            {
-                Damageability damageability = collision.gameObject.GetComponent<Damageability>();
-                AttackWithContact(damageability);
-            }
-
-
+            Damageability damageability = collision.gameObject.GetComponent<Damageability>();
+            AttackWithContact(damageability);
         }
 
 
     }
 
 
-
+    // This method check that it can attack the parameter
     protected abstract bool GiveDamageTag(string tag);
 
-
+    // This method does damage to destination
     protected virtual void AttackWithContact(Damageability destination)
     {
 

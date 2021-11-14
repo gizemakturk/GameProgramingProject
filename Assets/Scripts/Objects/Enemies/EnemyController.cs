@@ -21,7 +21,7 @@ public abstract class EnemyController : Controller
     public Animation Animation { get => animation; set => animation = value; }
     public Attack Attack { get => attack; set => attack = value; }
 
-    protected new void Init()
+    protected override void Init()
     {
 
         movement = GetComponent<MobMovement>();
@@ -32,7 +32,7 @@ public abstract class EnemyController : Controller
 
     }
 
-    protected new void Tick()
+    protected override void Tick()
     {
 
         if (!damageability.Alive)
@@ -40,7 +40,7 @@ public abstract class EnemyController : Controller
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 
             animation.Code = 1;
-            attack.attack = false;
+            attack.active = false;
             movement.goLeftFlag = false;
             movement.goRightFlag = false;
             return;

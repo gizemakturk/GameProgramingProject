@@ -11,8 +11,6 @@ public class Movement: MonoBehaviour, Feature
 
     //---------Attributes--------------
 
-
-    public float maxVelocity;
     public float acceleration;
     public float gravity;
     public float friction;
@@ -22,18 +20,15 @@ public class Movement: MonoBehaviour, Feature
 
     //---------Fixers----------------
     private float extraFriction;
-    private float fixer = 0.001f;
     //------------------------------
 
 
 
     private Rigidbody2D rigidbody2D;
-    private Transform transform;
 
     public void Init()
     {
         rigidbody2D = this.GetComponent<Rigidbody2D>();
-        transform = this.GetComponent<Transform>();
     }
     public void Tick() {
 
@@ -43,11 +38,12 @@ public class Movement: MonoBehaviour, Feature
     }
 
 
+    //This method applies gravity and friction.
     private void PhysicFunc()
     {
 
         // Gravity
-        SetVelocityAb(3,rigidbody2D.velocity.y-gravity);
+        SetVelocity(3,rigidbody2D.velocity.y-gravity);
 
         // Friction
         if (Mathf.Abs(rigidbody2D.velocity.x) > 0.1f)
@@ -56,42 +52,44 @@ public class Movement: MonoBehaviour, Feature
             if (rigidbody2D.velocity.x > 0)
             {
                 if (rigidbody2D.velocity.x <= friction+extraFriction)
-                    SetVelocityAb(0, 0);
+                    SetVelocity(0, 0);
                 else
-                    GiveVelocityAb(0, friction + extraFriction);
+                    GiveVelocity(0, friction+ extraFriction);
             }
             else
             {
-                if (rigidbody2D.velocity.x >= friction + extraFriction)
-                    SetVelocityAb(1, 0);
+                if (rigidbody2D.velocity.x >= friction+ extraFriction)
+                    SetVelocity(1, 0);
                 else
-                    GiveVelocityAb(1, friction + extraFriction);
+                    GiveVelocity(1, friction+ extraFriction);
             }
 
         }
 
     }
 
+
+    //This method checks velocity doesn't exceed the max speed.
     private void ControlMaxVelocity()
     {
 
 
-        if (this.GetComponent<Rigidbody2D>().velocity.x < -maxVelocity)
+        if (this.GetComponent<Rigidbody2D>().velocity.x < -Constants.MAX_SPEED)
         {
-            SetVelocity(0, maxVelocity);
+            SetVelocity(0, Constants.MAX_SPEED);
         }
-        else if (this.GetComponent<Rigidbody2D>().velocity.x > maxVelocity)
+        else if (this.GetComponent<Rigidbody2D>().velocity.x > Constants.MAX_SPEED)
         {
-            SetVelocity(1, maxVelocity);
+            SetVelocity(1, Constants.MAX_SPEED);
         }
 
-        if (this.GetComponent<Rigidbody2D>().velocity.y < -maxVelocity)
+        if (this.GetComponent<Rigidbody2D>().velocity.y < -Constants.MAX_SPEED)
         {
-            SetVelocity(2, maxVelocity);
+            SetVelocity(2, Constants.MAX_SPEED);
         }
-        else if (this.GetComponent<Rigidbody2D>().velocity.y > maxVelocity)
+        else if (this.GetComponent<Rigidbody2D>().velocity.y > Constants.MAX_SPEED)
         {
-            SetVelocity(3, maxVelocity);
+            SetVelocity(3, Constants.MAX_SPEED);
         }
 
 
@@ -99,40 +97,8 @@ public class Movement: MonoBehaviour, Feature
 
     }
 
-
-    public void GiveVelocity(int direction,float velocity)
-    {
-
-
-        if (direction == 0)
-        {
-            transform.position = new Vector2(transform.position.x - fixer, transform.position.y);
-            rigidbody2D.velocity += new Vector2(-velocity, 0);
-        }
-        else if(direction == 1)
-        {
-            transform.position = new Vector2(transform.position.x + fixer, transform.position.y);
-            rigidbody2D.velocity += new Vector2(velocity, 0);
-        }
-        else if(direction == 2)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y - fixer);
-            rigidbody2D.velocity += new Vector2(0, -velocity);
-        }
-        else if (direction == 3)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + fixer);
-            rigidbody2D.velocity += new Vector2(0, velocity);
-        }
-        else
-        {
-            throw new System.Exception("unknown direction");
-        }
-
-    }
-
-
-    public void GiveVelocityAb(int direction, float velocity)
+    //This method increases current velocity with second parameter
+    public void GiveVelocity(int direction, float velocity)
     {
 
 
@@ -160,44 +126,13 @@ public class Movement: MonoBehaviour, Feature
 
     }
 
-
+    //This method set current velocity with second parameter
     public void SetVelocity(int direction, float velocity)
     {
 
 
         if (direction == 0)
         {
-            transform.position = new Vector2(transform.position.x - fixer, transform.position.y);
-            rigidbody2D.velocity = new Vector2(-velocity, this.GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else if (direction == 1)
-        {
-            transform.position = new Vector2(transform.position.x + fixer, transform.position.y);
-            rigidbody2D.velocity = new Vector2(velocity, this.GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else if (direction == 2)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y - fixer);
-            rigidbody2D.velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x, -velocity);
-        }
-        else if (direction == 3)
-        {
-            transform.position = new Vector2(transform.position.x, transform.position.y + fixer );
-            rigidbody2D.velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x, velocity);
-        }
-        else
-        {
-            throw new System.Exception("unknown direction");
-        }
-
-    }
-
-    public void SetVelocityAb(int direction, float velocity)
-    {
-
-
-        if (direction == 0)
-        {
             rigidbody2D.velocity = new Vector2(-velocity, this.GetComponent<Rigidbody2D>().velocity.y);
         }
         else if (direction == 1)
@@ -219,27 +154,24 @@ public class Movement: MonoBehaviour, Feature
 
     }
 
+    //This method applies force as the second parameter.
     public void GiveForce(int direction, float force)
     {
 
         if (direction == 0)
         {
-            transform.position = new Vector2(transform.position.x - fixer, transform.position.y);
             rigidbody2D.AddForce(new Vector2(-force, 0));
         }
         else if (direction == 1)
         {
-            transform.position = new Vector2(transform.position.x + fixer, transform.position.y);
             rigidbody2D.AddForce(new Vector2(force, 0));
         }
         else if (direction == 2)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y - fixer);
             rigidbody2D.AddForce(new Vector2(0, -force));
         }
         else if (direction == 3)
         {
-            transform.position = new Vector2(transform.position.x, transform.position.y + fixer);
             rigidbody2D.AddForce(new Vector2(0, force));
         }
         else
@@ -260,6 +192,4 @@ public class Movement: MonoBehaviour, Feature
     }
     public Rigidbody2D Rigidbody2D { get => rigidbody2D; set => rigidbody2D = value; }
     public float ExtraFriction { get => extraFriction; set => extraFriction = value; }
-
-
 }

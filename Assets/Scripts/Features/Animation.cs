@@ -24,7 +24,7 @@ public abstract class Animation : MonoBehaviour, Feature
 
     }
 
-
+    // This method triggers the desired animator trigger
     protected abstract void AnimatorContor(int code);
     
 

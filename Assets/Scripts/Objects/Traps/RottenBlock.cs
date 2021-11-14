@@ -16,6 +16,8 @@ public class RottenBlock : MonoBehaviour
     }
 
     private bool drop;
+
+    // it shake and drop when player detected then destroy itself
     void FixedUpdate()
     {
         
@@ -44,6 +46,8 @@ public class RottenBlock : MonoBehaviour
 
 
     private float shakeSpeed = 0.012f;
+    
+    // shaking until drop
     private void Shake()
     {
 
@@ -52,6 +56,8 @@ public class RottenBlock : MonoBehaviour
     }
 
     private float dropSpeed = 0.1f;
+
+    //drop when cd is over
     private void Drop()
     {
 

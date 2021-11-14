@@ -7,6 +7,7 @@ public class MobMovement : Movement
 
 
     //----------Attributes-------------
+    public float maxVelocity;
     public float jump;
     [SerializeField]private float jumpCD = 300; // cannot change dynamic
     public float minSpeed;
@@ -18,24 +19,27 @@ public class MobMovement : Movement
     //---------Control Parameters----------------------------------
 
     private int direction;
-
-    public bool goLeftFlag;
-    public bool goRightFlag;
-    public bool jumpFlag;
+    
+    public bool goLeftFlag;     //  a controller set this flag if it wants to go left
+    public bool goRightFlag;    //  a controller set this flag if it wants to go right
+    public bool jumpFlag;       //  a controller set this flag if it wants to jump
 
 
     //---------------------------------------------------------------
 
 
+
+    //  Bounds are used for understand interactions
     //-----Bounds-------
-    private Bound leftBound;
-    private Bound rightBound;
-    private Bound upBound;
+    private Bound leftBound;    
+    private Bound rightBound;   
+    private Bound upBound;  
     private Bound downBound;
     //---------------------
 
 
     //----Cooldowns-------- 
+    // player must wait to jump until jumpCD
     private Cooldown jumpCooldown;
     //---------------------                          
 
@@ -59,6 +63,7 @@ public class MobMovement : Movement
 
     protected new void Init()
     {
+
         base.Init();
         jumpCooldown = new Cooldown(jumpCD);
         
@@ -80,8 +85,11 @@ public class MobMovement : Movement
 
     public bool secondJump = false;
 
-
+    // sometimes it gets stuck on the walls, it is fixer for it
     private float fixer2=0.02f;
+
+
+    // This method execute flags
     public void Move()
     {
 
@@ -94,15 +102,17 @@ public class MobMovement : Movement
                 transform.position = new Vector2(transform.position.x - fixer2, transform.position.y);
         }
 
+        //-------------------------------------------------
+
+
         if (!OnGround())
         {
-            ExtraFriction = 1.4f * friction;
+            ExtraFriction = friction;
         }
         else
         {
             ExtraFriction = 0;
         }
-        //-------------------------------------------------
 
 
         if (goLeftFlag)
@@ -130,11 +140,11 @@ public class MobMovement : Movement
 
     }
 
-
+    // This method execute goLeftFlag
     private void GoLeft()
     {
 
-        if (leftBound.contactWithGround)
+        if (leftBound.contactWithGround || GetVelocity().x < -maxVelocity)
         {
             goLeftFlag = false;
             direction = 0;
@@ -142,9 +152,9 @@ public class MobMovement : Movement
         }
 
 
-        if (GetVelocity().x > -minSpeed)
+        if (GetVelocity().x > -minSpeed && GetVelocity().x <= 0)
         {
-            GiveVelocity(0,minSpeed);
+            SetVelocity(0,minSpeed);
         }
 
         GiveForce(0,this.acceleration);
@@ -153,10 +163,12 @@ public class MobMovement : Movement
 
     }
 
+
+    //// This method execute goRightFlag
     private void GoRight()
     {
 
-        if (rightBound.contactWithGround)
+        if (rightBound.contactWithGround || GetVelocity().x > maxVelocity)
         {
 
             goRightFlag = false;
@@ -166,9 +178,9 @@ public class MobMovement : Movement
 
 
         
-        if (GetVelocity().x < minSpeed)
+        if (GetVelocity().x < minSpeed && GetVelocity().x>=0)
         {
-            GiveVelocity(1, minSpeed);
+            SetVelocity(1, minSpeed);
         }
 
         GiveForce(1, this.acceleration);
@@ -177,7 +189,7 @@ public class MobMovement : Movement
 
     }
 
-
+    // This method check that jump request is valid
     private bool CanJump()
     {
 
@@ -200,6 +212,7 @@ public class MobMovement : Movement
 
     }
 
+    // This method execute jumpFlag
     private void Jump()
     {
 
@@ -213,6 +226,7 @@ public class MobMovement : Movement
 
     }
 
+    // This method arrange correct scale for direction
     private void ArrangeScale(int direction)
     {
 
@@ -259,7 +273,7 @@ public class MobMovement : Movement
     }
 
 
-
+    // This method check that downBound is connecting With Ground
     public bool OnGround()
     {
         return downBound.contactWithGround;

@@ -27,7 +27,7 @@ public class TrapAttack : Attack
 
 
 
-        if (attack)
+        if (active)
         {
 
             string tag = collision.gameObject.tag;

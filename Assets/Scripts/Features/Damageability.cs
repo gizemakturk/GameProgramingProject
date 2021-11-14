@@ -20,7 +20,6 @@ public class Damageability :MonoBehaviour, Feature
     //----Flags-----
 
     public bool damagedFlag;
-    public bool damagedFlag2;
 
 
     //---------
@@ -53,6 +52,8 @@ public class Damageability :MonoBehaviour, Feature
 
 
     public float waitForDestroy = 10f;
+
+    // This method control that this is still alive or not. If not it will destroy this.
     private void ControlAlive()
     {
 
@@ -66,7 +67,7 @@ public class Damageability :MonoBehaviour, Feature
             }
             if (waitForDestroy <= 0)
             {
-                // deðiþmeli buranýn iþi deðil
+
                 if(this.gameObject.tag!="Player")
                     Destroy(this.gameObject);
                 else
@@ -82,7 +83,7 @@ public class Damageability :MonoBehaviour, Feature
 
     }
 
-
+    // This method decreases current hp.
     public void TakeDamage(int val) {
 
         if (val <= 0)
@@ -92,7 +93,6 @@ public class Damageability :MonoBehaviour, Feature
         }
         currentHp -= val;
         damagedFlag = true;
-        damagedFlag2 = true;
 
     }
 
@@ -103,7 +103,6 @@ public class Damageability :MonoBehaviour, Feature
     public int CurrentHp { get => currentHp; set => currentHp = value; }
     public int MaxHp { get => maxHp; set => maxHp = value; }
     public bool Alive { get => alive; set => alive = value; }
-    public bool Alive1 { get => alive; set => alive = value; }
 
     //------------------------------
 
