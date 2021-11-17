@@ -8,7 +8,6 @@ public class PlayerDamageability : Damageability
 
 
 
-
     private void Start()
     {
         Init();

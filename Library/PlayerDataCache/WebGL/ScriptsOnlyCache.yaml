@@ -7,6 +7,8 @@ ScriptsOnlyBuild:
     - DownBound
     - EndOfMap
     - EnemyAttack
+    - GatorAnimator
+    - GatorController
     - GhostGround
     - GrasshopperAnimator
     - GrasshopperController
@@ -23,6 +25,7 @@ ScriptsOnlyBuild:
     - RottenBlock
     - TrapAttack
     - UpBound
+    - showFPS
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.IK.Editor.dll:
@@ -30,8 +33,6 @@ ScriptsOnlyBuild:
     - UnityEditor.U2D.IK.IKGizmos
     Unity.2D.IK.Runtime.dll:
     - UnityEditor.U2D.IK.IKEditorManagerHelper
-    Unity.2D.Sprite.Editor.dll:
-    - UnityEditor.U2D.Sprites.SpriteEditorWindow
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridBrushEditor
@@ -152,6 +153,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1734}
     - Class: 114
+      Script: {instanceID: 2208}
+    - Class: 114
       Script: {instanceID: 2394}
     - Class: 114
       Script: {instanceID: 2444}
@@ -182,8 +185,12 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4760}
     - Class: 114
-      Script: {instanceID: 5306}
+      Script: {instanceID: 5308}
+    - Class: 114
+      Script: {instanceID: 5610}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -249,6 +256,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1734}
     - Class: 114
+      Script: {instanceID: 2208}
+    - Class: 114
       Script: {instanceID: 2394}
     - Class: 114
       Script: {instanceID: 2444}
@@ -289,8 +298,16 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4760}
     - Class: 114
-      Script: {instanceID: 5306}
+      Script: {instanceID: 5120}
+    - Class: 114
+      Script: {instanceID: 5308}
+    - Class: 114
+      Script: {instanceID: 5610}
+    - Class: 114
+      Script: {instanceID: 27364}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -978,6 +995,12 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAsset
   - hash:
       serializedVersion: 2
+      Hash: b9d88052f6743be853705525940f3862
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GatorController
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1020,10 +1043,22 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: f3847dd874a309f5a449ea42f30dc783
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: showFPS
+  - hash:
+      serializedVersion: 2
       Hash: 762a30c8d779b11af16ed9ce1f2d32fa
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
     className: FabrikSolver2D
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GatorAnimator
   platform: 20
   scenePathNames:
   - Assets/Scenes/MainMenu.unity

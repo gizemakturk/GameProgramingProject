@@ -23,6 +23,16 @@ public class Movement: MonoBehaviour, Feature
     //------------------------------
 
 
+    private void Start()
+    {
+        Init();
+    }
+
+    private void FixedUpdate()
+    {
+        Tick();
+    }
+
 
     private Rigidbody2D rigidbody2D;
 
@@ -43,7 +53,7 @@ public class Movement: MonoBehaviour, Feature
     {
 
         // Gravity
-        SetVelocity(3,rigidbody2D.velocity.y-gravity);
+        GiveVelocity(2,gravity);
 
         // Friction
         if (Mathf.Abs(rigidbody2D.velocity.x) > 0.1f)
@@ -130,6 +140,7 @@ public class Movement: MonoBehaviour, Feature
     public void SetVelocity(int direction, float velocity)
     {
 
+        
 
         if (direction == 0)
         {

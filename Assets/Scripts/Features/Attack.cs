@@ -34,6 +34,7 @@ public abstract class Attack :MonoBehaviour, Feature
     public void Init()
     {
         attackCooldown = new Cooldown(cooldown);
+        
     }
 
     public void Tick()

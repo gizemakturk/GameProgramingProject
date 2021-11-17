@@ -43,7 +43,7 @@ public class Cooldown
 
 
 
-    private float ElapsedTime()
+    public float ElapsedTime()
     {
 
         stopwatch.Stop();

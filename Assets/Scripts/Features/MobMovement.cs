@@ -76,10 +76,10 @@ public class MobMovement : Movement
 
     protected new void Tick()
     {
-        
-        
+
         Move();
         base.Tick();
+
     }
     
 
@@ -94,6 +94,7 @@ public class MobMovement : Movement
     {
 
         //------------------Fix----------------------------
+        /*
         if (!OnGround() && (leftBound.contactWithGround || rightBound.contactWithGround))
         {
             if(GetVelocity().y==0 && leftBound.contactWithGround)
@@ -101,7 +102,7 @@ public class MobMovement : Movement
             if (GetVelocity().y == 0 && rightBound.contactWithGround)
                 transform.position = new Vector2(transform.position.x - fixer2, transform.position.y);
         }
-
+        */
         //-------------------------------------------------
 
 

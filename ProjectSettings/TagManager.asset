@@ -12,6 +12,7 @@ TagManager:
   - EndOfMap
   - Glasshooper
   - ChangeDirection
+  - Gator
   layers:
   - Default
   - TransparentFX

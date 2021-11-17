@@ -20,6 +20,7 @@ public class Constants
     public readonly static string groundTag = "Ground";
     public readonly static string antTag = "Ant";
     public readonly static string glasshopperTag = "Glasshooper";
+    public readonly static string gatorTag = "Gator";
     public readonly static string changeDirectionTag = "ChangeDirection";
 
 
@@ -60,7 +61,7 @@ public class Constants
             PlayerGiveDamage = new ArrayList();
             PlayerGiveDamage.Add(antTag);
             PlayerGiveDamage.Add(glasshopperTag);
-
+            PlayerGiveDamage.Add(gatorTag);
             return PlayerGiveDamage;
 
         }

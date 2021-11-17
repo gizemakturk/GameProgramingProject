@@ -67,7 +67,7 @@ public abstract class EnemyController : Controller
 
 
     // basic AI
-    private void BasicAI()
+    protected virtual void BasicAI()
     {
 
 
@@ -118,11 +118,11 @@ public abstract class EnemyController : Controller
 
 
 
-    private Cooldown GetchangeDirectionCooldown()
+    protected Cooldown GetchangeDirectionCooldown()
     {
         if (changeDirectionCooldown == null)
         {
-            changeDirectionCooldown = new Cooldown(10);
+            changeDirectionCooldown = new Cooldown(50);
         }
 
         return changeDirectionCooldown;

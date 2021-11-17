@@ -30,7 +30,7 @@ public class PlayerAttack : Attack
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
+        
 
         if (Constants.ContainsList(Constants.GetPlayerGiveDamage(),downBound.contacts))
         {

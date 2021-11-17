@@ -80,10 +80,13 @@
     <Compile Include="Assets\Scripts\Objects\Traps\Pendulum.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\Bound\LeftBound.cs" />
     <Compile Include="Assets\Scripts\Features\Movement.cs" />
+    <Compile Include="Assets\Scripts\Objects\Enemies\Gator\GatorController.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\Bound\Bound.cs" />
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Grasshopper\GrasshopperController.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
+    <Compile Include="Assets\Scripts\showFPS.cs" />
+    <Compile Include="Assets\Scripts\Objects\Enemies\Gator\GatorAnimator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

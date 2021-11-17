@@ -169,11 +169,19 @@ public class PlayerController : Controller
 
     private void UpdateHpBar()
     {
+
         int pix = 32;
-        int cHp = damageability.currentHp;
-        int w = pix * cHp;
-        Image hpBar = GetComponentInChildren<Image>();
-        hpBar.rectTransform.sizeDelta = new Vector2(w,32);
+        int mHp = damageability.MaxHp;
+        int w = pix * mHp;
+        Image hpBarBase = GetComponentInChildren<Image>();
+        hpBarBase.rectTransform.sizeDelta = new Vector2(w,32);
+
+        int cHp = damageability.CurrentHp;
+        w = pix * cHp;
+        Image hpBar = GetComponentsInChildren<Image>()[1];
+        hpBar.rectTransform.sizeDelta = new Vector2(w, 32);
+
+
     }
 
 

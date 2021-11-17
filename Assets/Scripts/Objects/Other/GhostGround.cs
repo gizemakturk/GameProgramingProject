@@ -12,6 +12,7 @@ public class GhostGround : MonoBehaviour
     private void Start()
     {
         collider = GetComponent<CompositeCollider2D>();
+        collider.isTrigger = true;
     }
 
 
