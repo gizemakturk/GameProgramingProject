@@ -7,11 +7,13 @@ public class PlayerController : Controller
 {
 
 
+    private static bool kill;
+
     private PlayerMovement movement;
     private PlayerDamageability damageability;
     private PlayerAnimation animation;
 
-    public static int CurrentHp=3;
+
 
 
 
@@ -24,9 +26,12 @@ public class PlayerController : Controller
     //-----------------
 
 
-
+    private bool first=true;
     protected override void Tick()
     {
+
+        if (first)
+            UpdateHpBar();
 
         AnimatorMethod();
         if (damageability.Alive == false)
@@ -35,24 +40,42 @@ public class PlayerController : Controller
             return;
         }
 
+        if (kill)
+        {
+            damageability.TakeDamage(HUD.CurrentHp);
+
+        }
+
         if (damageability.damagedFlag)
         {
+            
+            HUD.CurrentHp = damageability.currentHp;
             UpdateHpBar();
-            CurrentHp = damageability.currentHp;
         }
 
 
-        InputMethod();
+        
     }
 
     protected override void Init()
     {
+        kill = false;
+
+        if (HUD.CurrentHp <= 0)
+        {
+            
+            HUD.CurrentHp = 3;
+            HUD.SetScore(0);
+        }
+            
+
         jumpCooldown = new Cooldown(cdJump);
         movement = GetComponent<PlayerMovement>();
         damageability = GetComponent<PlayerDamageability>();
         animation = GetComponent<PlayerAnimation>();
 
-        damageability.currentHp = CurrentHp;
+        damageability.currentHp = HUD.CurrentHp;
+
         UpdateHpBar();
     }
 
@@ -65,15 +88,17 @@ public class PlayerController : Controller
 
     }
 
+    
 
     
     private void FixedUpdate()
     {
-
+        
         Tick();
 
 
     }
+
 
 
 
@@ -94,11 +119,19 @@ public class PlayerController : Controller
         {
             movement.GoRightFlag = true;
         }
+        
 
-        if ((movement.OnGround() || movement.secondJump) && Input.GetKey("space") && GetJumpCooldown().Control())
+        if ((movement.OnGround() || movement.secondJump) && Input.GetKeyDown("space") && GetJumpCooldown().Control())
         {
             movement.JumpFlag = true;
         }
+
+
+        if (Input.GetKeyDown("escape"))
+        {
+            HUD.PopUpMenuControl();
+        }
+
 
     }
 
@@ -135,11 +168,14 @@ public class PlayerController : Controller
 
     private void Update()
     {
-
+        
         // leaves camera tracking
         if (!damageability.Alive) {
             return;
         }
+
+
+        InputMethod();
 
         if (camera == null)
         {
@@ -170,19 +206,11 @@ public class PlayerController : Controller
     private void UpdateHpBar()
     {
 
-        int pix = 32;
-        int mHp = damageability.MaxHp;
-        int w = pix * mHp;
-        Image hpBarBase = GetComponentInChildren<Image>();
-        hpBarBase.rectTransform.sizeDelta = new Vector2(w,32);
-
-        int cHp = damageability.CurrentHp;
-        w = pix * cHp;
-        Image hpBar = GetComponentsInChildren<Image>()[1];
-        hpBar.rectTransform.sizeDelta = new Vector2(w, 32);
-
+        HUD.UpdateHpBar(damageability);
 
     }
+
+    
 
 
 
@@ -205,6 +233,8 @@ public class PlayerController : Controller
     public PlayerMovement Movement { get => movement; set => movement = value; }
     public PlayerAnimation Animation { get => animation; set => animation = value; }
     public PlayerDamageability Damageability { get => damageability; set => damageability = value; }
+    public static bool Kill { get => kill; set => kill = value; }
+
     private Cooldown GetJumpCooldown()
     {
         if (jumpCooldown == null)

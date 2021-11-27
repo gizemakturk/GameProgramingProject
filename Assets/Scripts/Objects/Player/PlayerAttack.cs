@@ -8,13 +8,14 @@ public class PlayerAttack : Attack
 
     private DownBound downBound;
     private PlayerMovement playerMovement;
+    private PlayerDamageability damageability;
 
     public void Init()
     {
         base.Init();
         downBound = GetComponentInChildren<DownBound>();
         playerMovement = GetComponent<PlayerMovement>();
-
+        damageability = GetComponent<PlayerDamageability>();
     }
 
 
@@ -25,11 +26,15 @@ public class PlayerAttack : Attack
     }
     private void FixedUpdate()
     {
-        Tick();
+        if (damageability.Alive)
+            Tick();
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+
+        if (!damageability.Alive)
+            return;
         
 
         if (Constants.ContainsList(Constants.GetPlayerGiveDamage(),downBound.contacts))
@@ -40,9 +45,13 @@ public class PlayerAttack : Attack
             {
 
                 Damageability damageability = collision.gameObject.GetComponent<Damageability>();
+                if (!damageability.Alive)
+                    return;
+
                 AttackWithContact(damageability);
                 playerMovement.SetVelocity(3,playerMovement.jump);
-
+                if(damageability.currentHp==0)
+                    HUD.UpdateScore(100);
             }
 
 

@@ -59,11 +59,13 @@
     <Compile Include="Assets\Scripts\Objects\Enemies\Grasshopper\GrasshopperAnimator.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\GhostGround.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\Menus\Menu.cs" />
+    <Compile Include="Assets\Scripts\Objects\Enemies\Gator\GatorAnimator.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyController.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\PlayerDamageability.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\Bound\UpBound.cs" />
+    <Compile Include="Assets\Scripts\HUD.cs" />
     <Compile Include="Assets\Scripts\Features\Attack.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Ant\AntAnimator.cs" />
     <Compile Include="Assets\Scripts\Features\Feature.cs" />
@@ -85,8 +87,29 @@
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Grasshopper\GrasshopperController.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
-    <Compile Include="Assets\Scripts\showFPS.cs" />
-    <Compile Include="Assets\Scripts\Objects\Enemies\Gator\GatorAnimator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

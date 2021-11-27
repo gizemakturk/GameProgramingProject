@@ -18,7 +18,7 @@ public class MobMovement : Movement
 
     //---------Control Parameters----------------------------------
 
-    private int direction;
+    private int direction=1;
     
     public bool goLeftFlag;     //  a controller set this flag if it wants to go left
     public bool goRightFlag;    //  a controller set this flag if it wants to go right

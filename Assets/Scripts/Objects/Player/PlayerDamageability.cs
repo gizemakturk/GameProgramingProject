@@ -17,7 +17,9 @@ public class PlayerDamageability : Damageability
 
     private void FixedUpdate()
     {
+
         Tick();
+
     }
 
 

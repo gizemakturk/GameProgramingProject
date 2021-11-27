@@ -73,7 +73,7 @@ public class Damageability :MonoBehaviour, Feature
                 else
                 {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                    PlayerController.CurrentHp = this.maxHp;
+                    
                 }
                     
             }

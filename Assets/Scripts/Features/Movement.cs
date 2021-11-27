@@ -30,6 +30,7 @@ public class Movement: MonoBehaviour, Feature
 
     private void FixedUpdate()
     {
+        
         Tick();
     }
 

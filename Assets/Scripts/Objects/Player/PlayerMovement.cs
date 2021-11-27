@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MobMovement
 {
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class PlayerMovement : MobMovement
 
     void FixedUpdate()
     {
-
+        
         Tick();
     }
 
