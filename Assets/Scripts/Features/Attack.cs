@@ -33,8 +33,7 @@ public abstract class Attack :MonoBehaviour, Feature
 
     public void Init()
     {
-        attackCooldown = new Cooldown(cooldown);
-        
+        attackCooldown = new Cooldown(cooldown); 
     }
 
     public void Tick()
@@ -59,9 +58,6 @@ public abstract class Attack :MonoBehaviour, Feature
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-
-
         if (!active)
             return;
 
@@ -71,7 +67,6 @@ public abstract class Attack :MonoBehaviour, Feature
             Damageability damageability = collision.gameObject.GetComponent<Damageability>();
             AttackWithContact(damageability);
         }
-
 
     }
 
@@ -98,7 +93,6 @@ public abstract class Attack :MonoBehaviour, Feature
             else
             {
                 movement.SetVelocity(1, tossing);
-
             }
 
             movement.SetVelocity(3,tossingUp);

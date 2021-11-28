@@ -424,11 +424,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06321e60bb4d5040aa2369c82d2124c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 1
+  active: 1
   tossing: 3
   tossingUp: 2
   attackPower: 1
   cooldown: 2000
+  attackedFlag: 0
 --- !u!61 &3672844679551517640
 BoxCollider2D:
   m_ObjectHideFlags: 0

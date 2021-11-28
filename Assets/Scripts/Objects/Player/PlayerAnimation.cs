@@ -22,15 +22,11 @@ public class PlayerAnimation : Animation
 
     private void FixedUpdate()
     {
-
         Tick();
-
         if (playerController.Damageability.damagedFlag)
         {
             Blink();
         }
-
-
     }
 
 
@@ -42,7 +38,6 @@ public class PlayerAnimation : Animation
 
         if (!GetBlinkCooldown().Control())
         {
-
             GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
         }
         else

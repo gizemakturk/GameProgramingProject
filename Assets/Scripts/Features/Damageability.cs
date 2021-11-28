@@ -21,7 +21,6 @@ public class Damageability :MonoBehaviour, Feature
 
     public bool damagedFlag;
 
-
     //---------
 
 
@@ -68,14 +67,16 @@ public class Damageability :MonoBehaviour, Feature
             if (waitForDestroy <= 0)
             {
 
+
                 if(this.gameObject.tag!="Player")
                     Destroy(this.gameObject);
                 else
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                    
+                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                    HUD.PopUpMenuDied.enabled = true;
                 }
-                    
+                
+
             }
                 
             return;

@@ -186,17 +186,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8049270b83b80aa4c8e1ff92aa05543c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVelocity: 4
   acceleration: 0.001
   gravity: 0.0999
   friction: 0.1
+  maxVelocity: 4
   jump: 4
   jumpCD: 300
   minSpeed: 0.4
   goLeftFlag: 0
   goRightFlag: 0
   jumpFlag: 0
-  secondJump: 0
 --- !u!114 &1988591048920979346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +222,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 1
   currentHp: 1
-  alive: 1
   damagedFlag: 0
   waitForDestroy: 0.5
 --- !u!114 &1988591048920979348
@@ -238,11 +236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d03a97b231282142bbf63e40204ee93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 1
+  active: 1
   tossing: 2
   tossingUp: 2
   attackPower: 1
   cooldown: 1000
+  attackedFlag: 0
 --- !u!1001 &911089480506851297
 PrefabInstance:
   m_ObjectHideFlags: 0

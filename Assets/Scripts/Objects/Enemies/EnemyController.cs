@@ -73,7 +73,7 @@ public abstract class EnemyController : Controller
 
         if (movement.Direction == 0)
         {
-
+            
             if (attack.attackedFlag ||(GetchangeDirectionCooldown().Control() &&
                 Constants.ContainsList(movement.LeftBound.contacts, Constants.GetEnemyChangeDirection())))
             {
@@ -90,7 +90,6 @@ public abstract class EnemyController : Controller
             if (attack.attackedFlag || (GetchangeDirectionCooldown().Control() &&
                 Constants.ContainsList(movement.RightBound.contacts, Constants.GetEnemyChangeDirection())))
             {
-
                 dir = 0;
                 attack.attackedFlag = false;
             }

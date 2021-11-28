@@ -83,29 +83,13 @@ public class MobMovement : Movement
     }
     
 
-    public bool secondJump = false;
-
-    // sometimes it gets stuck on the walls, it is fixer for it
-    private float fixer2=0.02f;
+    private bool secondJump = false;
 
 
     // This method execute flags
     public void Move()
     {
-
-        //------------------Fix----------------------------
-        /*
-        if (!OnGround() && (leftBound.contactWithGround || rightBound.contactWithGround))
-        {
-            if(GetVelocity().y==0 && leftBound.contactWithGround)
-                transform.position = new Vector2(transform.position.x + fixer2, transform.position.y);
-            if (GetVelocity().y == 0 && rightBound.contactWithGround)
-                transform.position = new Vector2(transform.position.x - fixer2, transform.position.y);
-        }
-        */
-        //-------------------------------------------------
-
-
+        
         if (!OnGround())
         {
             ExtraFriction = friction;
@@ -292,7 +276,7 @@ public class MobMovement : Movement
     public Bound RightBound { get => rightBound; set => rightBound = value; }
     public Bound LeftBound { get => leftBound; set => leftBound = value; }
     public Bound DownBound { get => downBound; set => downBound = value; }
-
+    public bool SecondJump { get => secondJump; set => secondJump = value; }
 
     private Cooldown GetJumpCooldown()
     {

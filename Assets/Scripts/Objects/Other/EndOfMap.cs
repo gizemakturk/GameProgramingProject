@@ -28,6 +28,7 @@ public class EndOfMap : MonoBehaviour
             if(damageability.Alive)
                 movementModule.SetVelocity(3, 4);
             damageability.TakeDamage(damageability.CurrentHp);
+
         }
 
     }

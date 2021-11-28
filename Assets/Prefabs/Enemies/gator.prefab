@@ -143,15 +143,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 0
   gravity: 0
-  friction: 0
+  friction: 0.5
   maxVelocity: 3
   jump: 0
   jumpCD: 300
-  minSpeed: 1
+  minSpeed: 2
   goLeftFlag: 0
   goRightFlag: 0
   jumpFlag: 0
-  secondJump: 0
 --- !u!114 &3767507324602832838
 MonoBehaviour:
   m_ObjectHideFlags: 0

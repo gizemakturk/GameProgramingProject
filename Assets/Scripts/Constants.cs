@@ -2,10 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Constants
 {
-
+    
+    
 
     //limitations
     public readonly static float MAX_SPEED = 10;
@@ -26,6 +28,7 @@ public class Constants
 
 
     private static ArrayList EnemyChangeDirection;
+    private static ArrayList BladeChangeDirection;
 
     private static ArrayList PlayerGiveDamage;
 
@@ -43,11 +46,32 @@ public class Constants
             EnemyChangeDirection.Add(changeDirectionTag);
             EnemyChangeDirection.Add(antTag);
             EnemyChangeDirection.Add(glasshopperTag);
+            EnemyChangeDirection.Add(playerTag);
             return EnemyChangeDirection;
 
         }
 
     }
+
+    public static ArrayList GetBladeChangeDirection()
+    {
+
+        if (BladeChangeDirection != null)
+        {
+            return BladeChangeDirection;
+        }
+        else
+        {
+
+            BladeChangeDirection = new ArrayList();
+            BladeChangeDirection.Add(groundTag);
+            BladeChangeDirection.Add(changeDirectionTag);
+            return BladeChangeDirection;
+
+        }
+
+    }
+
 
     public static ArrayList GetPlayerGiveDamage()
     {
@@ -82,6 +106,14 @@ public class Constants
         return false;
 
     }
+
+
+
+    public static int INFO_SCENE()
+    {
+        return SceneManager.sceneCountInBuildSettings - 1;
+    }
+
 
 
 
