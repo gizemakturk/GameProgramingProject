@@ -14442,11 +14442,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HUD_UpdateTime_m99AE4139775F8EAECE7B63F0
 		float L_0;
 		L_0 = Time_get_realtimeSinceStartup_m5228CC1C1E57213D4148E965499072EA70D8C02B(/*hidden argument*/NULL);
 		float L_1 = __this->get_startTime_23();
-		// if (time >= nextTime + 1)
+		// if (time >= nextTime)
 		int32_t L_2 = __this->get_nextTime_24();
-		if ((!(((float)((float)il2cpp_codegen_subtract((float)L_0, (float)L_1))) >= ((float)((float)((float)((int32_t)il2cpp_codegen_add((int32_t)L_2, (int32_t)1))))))))
+		if ((!(((float)((float)il2cpp_codegen_subtract((float)L_0, (float)L_1))) >= ((float)((float)((float)L_2))))))
 		{
-			goto IL_0050;
+			goto IL_004e;
 		}
 	}
 	{
@@ -14467,7 +14467,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HUD_UpdateTime_m99AE4139775F8EAECE7B63F0
 		__this->set_nextTime_24(((int32_t)il2cpp_codegen_add((int32_t)L_8, (int32_t)1)));
 	}
 
-IL_0050:
+IL_004e:
 	{
 		// }
 		return;
