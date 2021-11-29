@@ -41,8 +41,8 @@ public class HUD : MonoBehaviour
     public int maxTime=60;
     private int currentTime=0;
 
-    // Store start time of current scene
-    private float startTime;
+    // Store last time of change timelabel
+    private static float lastTime;
 
 
     private void Start()
@@ -68,7 +68,7 @@ public class HUD : MonoBehaviour
 
 
 
-        startTime = Time.realtimeSinceStartup;
+        lastTime = Time.realtimeSinceStartup;
 
         GetComponentInChildren<Slider>().value = sound;
 
@@ -92,21 +92,18 @@ public class HUD : MonoBehaviour
 
     
 
-    private int nextTime = 0;
-
     // Update time label with Time.realtimeSinceStartup - startTime if reaches next int value
     private void UpdateTime()
     {
 
-        float time = Time.realtimeSinceStartup - startTime;
+        float time = Time.realtimeSinceStartup - lastTime;
         
-        if (time >= nextTime)
+        if (time >= 1)
         {
 
-            currentTime = nextTime;
+            currentTime++;
             timeLabel.text = (maxTime-currentTime).ToString();
-            nextTime++;
-
+            lastTime = Time.realtimeSinceStartup;
         }
 
 
@@ -141,7 +138,7 @@ public class HUD : MonoBehaviour
     public static void MainMenu()
     {
 
-        if (!PopUpMenuDied.enabled|| !PopUpMenuDied.enabled)
+        if (!PopUpMenu.enabled && !PopUpMenuDied.enabled)
         {
             return;
         }
@@ -204,9 +201,15 @@ public class HUD : MonoBehaviour
         Menu.enabled = true;
         Settings.enabled = false;
         if (PopUpMenu.enabled)
+        {
             Time.timeScale = 0;
+        }   
         else
+        {
             Time.timeScale = 1;
+           
+        }
+            
 
     }
 
