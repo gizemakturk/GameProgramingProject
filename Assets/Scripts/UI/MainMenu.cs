@@ -11,14 +11,14 @@ public class MainMenu : MonoBehaviour
     public GameObject options;
     public Slider sound;
 
-
+    // set sound value with static value in HUD
     private void Start()
     {
         sound.value = HUD.sound;
     }
 
 
-
+    // Load info scene then info scene load level 1
     public void StartGame() {
 
         InfoScene.Info = "Level 1";
@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
         
     }
-
+    
     public void Options()
     {
 

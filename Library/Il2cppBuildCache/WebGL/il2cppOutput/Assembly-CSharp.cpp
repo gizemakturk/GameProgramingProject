@@ -10875,12 +10875,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool HUD_ControlMaxTime_m3AE257242E1B6BDC1FC4
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR void PlayerController_set_Kill_m8068E8D64111C7863D5BDB4E3F32F60899130B40_inline (bool ___value0, const RuntimeMethod* method);
 // System.Void HUD::UpdateTime()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HUD_UpdateTime_m99AE4139775F8EAECE7B63F0ADC0EF0E8B27D29B (HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9 * __this, const RuntimeMethod* method);
+// System.Boolean UnityEngine.Behaviour::get_enabled()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Behaviour_get_enabled_m08077AB79934634E1EAE909C2B482BEF4C15A800 (Behaviour_t1A3DDDCF73B4627928FBFE02ED52B7251777DBD9 * __this, const RuntimeMethod* method);
 // System.Void UnityEngine.SceneManagement.SceneManager::LoadScene(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SceneManager_LoadScene_m5550E6368A6D0E37DACEDA3C5E4BA331836BC3C5 (int32_t ___sceneBuildIndex0, const RuntimeMethod* method);
 // System.Void UnityEngine.Time::set_timeScale(System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Time_set_timeScale_m1987DE9E74FC6C0126CE4F59A6293E3B85BD01EA (float ___value0, const RuntimeMethod* method);
-// System.Boolean UnityEngine.Behaviour::get_enabled()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Behaviour_get_enabled_m08077AB79934634E1EAE909C2B482BEF4C15A800 (Behaviour_t1A3DDDCF73B4627928FBFE02ED52B7251777DBD9 * __this, const RuntimeMethod* method);
 // UnityEngine.SceneManagement.Scene UnityEngine.SceneManagement.SceneManager::GetActiveScene()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Scene_t5495AD2FDC587DB2E94D9BDE2B85868BFB9A92EE  SceneManager_GetActiveScene_mB9A5037FFB576B2432D0BFEF6A161B7C4C1921A4 (const RuntimeMethod* method);
 // System.Int32 UnityEngine.SceneManagement.Scene::get_buildIndex()
@@ -14536,9 +14536,39 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HUD_MainMenu_mBB9CFF1CDCC23E7EC5F54B4AB2
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)
 	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9_il2cpp_TypeInfo_var);
 		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&SceneManager_tEC9D10ECC0377F8AE5AEEB5A789FFD24364440FA_il2cpp_TypeInfo_var);
 		s_Il2CppMethodInitialized = true;
 	}
+	{
+		// if (!PopUpMenuDied.enabled|| !PopUpMenuDied.enabled)
+		IL2CPP_RUNTIME_CLASS_INIT(HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9_il2cpp_TypeInfo_var);
+		Canvas_t2B7E56B7BDC287962E092755372E214ACB6393EA * L_0 = ((HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9_StaticFields*)il2cpp_codegen_static_fields_for(HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9_il2cpp_TypeInfo_var))->get_PopUpMenuDied_8();
+		bool L_1;
+		L_1 = Behaviour_get_enabled_m08077AB79934634E1EAE909C2B482BEF4C15A800(L_0, /*hidden argument*/NULL);
+		if (!L_1)
+		{
+			goto IL_0018;
+		}
+	}
+	{
+		IL2CPP_RUNTIME_CLASS_INIT(HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9_il2cpp_TypeInfo_var);
+		Canvas_t2B7E56B7BDC287962E092755372E214ACB6393EA * L_2 = ((HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9_StaticFields*)il2cpp_codegen_static_fields_for(HUD_t7BAB95FEFCC7E539118E7C066EACE09D2062EFB9_il2cpp_TypeInfo_var))->get_PopUpMenuDied_8();
+		bool L_3;
+		L_3 = Behaviour_get_enabled_m08077AB79934634E1EAE909C2B482BEF4C15A800(L_2, /*hidden argument*/NULL);
+		if (L_3)
+		{
+			goto IL_0019;
+		}
+	}
+
+IL_0018:
+	{
+		// return;
+		return;
+	}
+
+IL_0019:
 	{
 		// SceneManager.LoadScene(0);
 		IL2CPP_RUNTIME_CLASS_INIT(SceneManager_tEC9D10ECC0377F8AE5AEEB5A789FFD24364440FA_il2cpp_TypeInfo_var);

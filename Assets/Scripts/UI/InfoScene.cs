@@ -8,9 +8,9 @@ public class InfoScene : MonoBehaviour
 {
 
 
-    private static string info;
-    private static int go;
-    private static float wait;
+    private static string info; // text in the screen
+    private static int go;      // the index of screen that will load
+    private static float wait;  // the time this screen is visibles
 
 
 
@@ -22,13 +22,12 @@ public class InfoScene : MonoBehaviour
 
 
 
-    // Start is called before the first frame update
     IEnumerator Start()
     {
 
         TMP_Text infoLabel = GetComponentInChildren<TMP_Text>();
         infoLabel.text = info;
-
+        
         yield return new WaitForSeconds(wait);
         SceneManager.LoadScene(go);
 

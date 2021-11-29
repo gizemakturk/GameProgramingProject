@@ -45,8 +45,6 @@ public class HUD : MonoBehaviour
     private float startTime;
 
 
-    
-
     private void Start()
     {
         PopUpMenu = PopUpMenuTemp;
@@ -102,7 +100,7 @@ public class HUD : MonoBehaviour
 
         float time = Time.realtimeSinceStartup - startTime;
         
-        if (time >= nextTime + 1)
+        if (time >= nextTime)
         {
 
             currentTime = nextTime;
@@ -143,6 +141,12 @@ public class HUD : MonoBehaviour
     public static void MainMenu()
     {
 
+        if (!PopUpMenuDied.enabled|| !PopUpMenuDied.enabled)
+        {
+            return;
+        }
+
+
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
 
@@ -158,6 +162,7 @@ public class HUD : MonoBehaviour
 
     }
 
+    // Restart Current Sceen
     public static void Restart()
     {
         if (!PopUpMenuDied.enabled)
@@ -206,7 +211,7 @@ public class HUD : MonoBehaviour
     }
 
 
-    // Up hpbar with max and current hp
+    // Update hpbar with max and current hp
     public static void UpdateHpBar(Damageability damageability)
     {
 
