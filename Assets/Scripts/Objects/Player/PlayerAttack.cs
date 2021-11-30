@@ -10,24 +10,19 @@ public class PlayerAttack : Attack
     private PlayerMovement playerMovement;
     private PlayerDamageability damageability;
 
-    public void Init()
+
+    public void Start()
     {
-        base.Init();
+        base.Start();
         downBound = GetComponentInChildren<DownBound>();
         playerMovement = GetComponent<PlayerMovement>();
         damageability = GetComponent<PlayerDamageability>();
     }
-
-
-
-    private void Start()
-    {
-        Init();
-    }
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
         if (damageability.Alive)
-            Tick();
+            base.FixedUpdate();
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -37,11 +32,21 @@ public class PlayerAttack : Attack
             return;
         
 
-        if (Constants.ContainsList(Constants.GetPlayerGiveDamage(),downBound.contacts))
+        if (CONSTANTS.ContainsList(CONSTANTS.PLAYER_GIVE_DAMAGE_LIST,downBound.contacts))
         {
 
+            Damageability damageability = collision.gameObject.GetComponent<Damageability>();
+            if (!damageability.Alive)
+                return;
+
+            AttackWithContact(damageability);
+            playerMovement.SetVelocity(3, playerMovement.jump);
+
+            /*
+            int layer = collision.gameObject.layer;
             string tag = collision.gameObject.tag;
-            if (Constants.GetPlayerGiveDamage().Contains(tag))
+            if (CONSTANTS.PLAYER_GIVE_DAMAGE_LIST.Contains(layer) 
+                || CONSTANTS.PLAYER_GIVE_DAMAGE_LIST.Contains(tag))
             {
 
                 Damageability damageability = collision.gameObject.GetComponent<Damageability>();
@@ -50,9 +55,13 @@ public class PlayerAttack : Attack
 
                 AttackWithContact(damageability);
                 playerMovement.SetVelocity(3,playerMovement.jump);
+
+                
                 if(damageability.currentHp==0)
                     HUD.UpdateScore(100);
+                
             }
+        */
 
 
         }
@@ -60,8 +69,9 @@ public class PlayerAttack : Attack
 
     }
 
-    protected override bool GiveDamageTag(string tag)
+    protected override bool CanGiveDamage(int layer, string tag)
     {
-        return Constants.GetPlayerGiveDamage().Contains(tag);
+        return CONSTANTS.PLAYER_GIVE_DAMAGE_LIST.Contains(layer) || CONSTANTS.PLAYER_GIVE_DAMAGE_LIST.Contains(tag);
     }
+
 }

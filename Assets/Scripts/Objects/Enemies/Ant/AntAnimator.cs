@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class AntAnimator : Animation
 {
-    protected override void AnimatorContor(int code)
+
+
+    private static Dictionary<int, string> triggers;
+
+    protected override Dictionary<int, string> GetTriggers()
     {
-        if (code == 1)
-        {
-            this.animator.SetTrigger("hurt");
-        }
+
+        if (triggers != null)
+            return triggers;
+
+        Dictionary<int, string> temp = new Dictionary<int, string>();
+        temp.Add(1, "hurt");
+        triggers = temp;
+        return triggers ;
 
     }
 
-    void Start()
+
+
+    public void Start()
     {
-        Init();
+
+        base.Start();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Tick();
+
+        base.FixedUpdate();
     }
 
 

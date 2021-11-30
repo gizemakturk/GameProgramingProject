@@ -100,11 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  tossing: 4
-  tossingUp: 3
+  tossingTargetHorizontal: 3
+  tossingTargetUp: 2
   attackPower: 1
-  cooldown: 2000
-  attackedFlag: 0
+  cooldown: 1000
 --- !u!61 &2859612588196297242
 BoxCollider2D:
   m_ObjectHideFlags: 0

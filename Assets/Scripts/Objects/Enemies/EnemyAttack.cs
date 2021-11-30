@@ -6,28 +6,28 @@ public class EnemyAttack : Attack
 {
 
 
-    private void Start()
+    public void Start()
     {
-        Init();
+        //Init();
+        base.Start();
     }
 
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
-        Tick();
+        //Tick();
+        base.FixedUpdate();
     }
 
 
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-
-
         if (active)
         {
-
+            int    layer = collision.gameObject.layer;
             string tag = collision.gameObject.tag;
-            if (GiveDamageTag(tag) &&
+            if (CanGiveDamage(layer,tag) &&
                 !GetComponent<MobMovement>().UpBound.contacts.Contains("Player"))
             {
                 Damageability damageability = collision.gameObject.GetComponent<Damageability>();
@@ -41,8 +41,11 @@ public class EnemyAttack : Attack
 
     }
 
-    protected override bool GiveDamageTag(string tag)
+
+    protected override bool CanGiveDamage(int layer, string tag)
     {
         return tag == "Player";
     }
+
+
 }

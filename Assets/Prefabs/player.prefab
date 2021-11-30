@@ -666,7 +666,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 3
   currentHp: 3
-  damagedFlag: 0
   waitForDestroy: 2
 --- !u!114 &7453028674842973997
 MonoBehaviour:
@@ -705,11 +704,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  tossing: 0
-  tossingUp: 0
+  tossingTargetHorizontal: 0
+  tossingTargetUp: 0
   attackPower: 1
-  cooldown: 100
-  attackedFlag: 0
+  cooldown: 500
 --- !u!114 &7453028675351045860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,7 +727,3 @@ MonoBehaviour:
   jump: 2.5
   jumpCD: 300
   minSpeed: 1.3
-  goLeftFlag: 0
-  goRightFlag: 0
-  jumpFlag: 0
-  secondJump: 0

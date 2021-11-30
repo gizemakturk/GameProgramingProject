@@ -23,15 +23,15 @@ public class Movement: MonoBehaviour, Feature
     //------------------------------
 
 
-    private void Start()
+    public void Start()
     {
-        Init();
+        rigidbody2D = this.GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    public void FixedUpdate()
     {
-        
-        Tick();
+        PhysicFunc();
+        ControlMaxVelocity();
     }
 
 
@@ -49,6 +49,8 @@ public class Movement: MonoBehaviour, Feature
     }
 
 
+
+
     //This method applies gravity and friction.
     private void PhysicFunc()
     {
@@ -56,7 +58,11 @@ public class Movement: MonoBehaviour, Feature
         // Gravity
         GiveVelocity(2,gravity);
 
-        // Friction
+
+
+
+        // Friction (düzenlenebilir)
+
         if (Mathf.Abs(rigidbody2D.velocity.x) > 0.1f)
         {
 
@@ -83,114 +89,35 @@ public class Movement: MonoBehaviour, Feature
     //This method checks velocity doesn't exceed the max speed.
     private void ControlMaxVelocity()
     {
-
-
-        if (this.GetComponent<Rigidbody2D>().velocity.x < -Constants.MAX_SPEED)
-        {
-            SetVelocity(0, Constants.MAX_SPEED);
-        }
-        else if (this.GetComponent<Rigidbody2D>().velocity.x > Constants.MAX_SPEED)
-        {
-            SetVelocity(1, Constants.MAX_SPEED);
-        }
-
-        if (this.GetComponent<Rigidbody2D>().velocity.y < -Constants.MAX_SPEED)
-        {
-            SetVelocity(2, Constants.MAX_SPEED);
-        }
-        else if (this.GetComponent<Rigidbody2D>().velocity.y > Constants.MAX_SPEED)
-        {
-            SetVelocity(3, Constants.MAX_SPEED);
-        }
-
-
-
+        if (rigidbody2D.velocity.magnitude > CONSTANTS.MAX_SPEED)
+            rigidbody2D.velocity = rigidbody2D.velocity.normalized * CONSTANTS.MAX_SPEED;
 
     }
 
     //This method increases current velocity with second parameter
     public void GiveVelocity(int direction, float velocity)
     {
-
-
-        if (direction == 0)
-        {
-            rigidbody2D.velocity += new Vector2(-velocity, 0);
-        }
-        else if (direction == 1)
-        {
-            rigidbody2D.velocity += new Vector2(velocity, 0);
-        }
-        else if (direction == 2)
-        {
-
-            rigidbody2D.velocity += new Vector2(0, -velocity);
-        }
-        else if (direction == 3)
-        {
-            rigidbody2D.velocity += new Vector2(0, velocity);
-        }
-        else
-        {
-            throw new System.Exception("unknown direction");
-        }
-
+        rigidbody2D.velocity += velocity * CONSTANTS.DIRECTIONS[direction];
     }
 
     //This method set current velocity with second parameter
     public void SetVelocity(int direction, float velocity)
     {
+        Vector2 temp = velocity * CONSTANTS.DIRECTIONS[direction];
 
-        
-
-        if (direction == 0)
-        {
-            rigidbody2D.velocity = new Vector2(-velocity, this.GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else if (direction == 1)
-        {
-            rigidbody2D.velocity = new Vector2(velocity, this.GetComponent<Rigidbody2D>().velocity.y);
-        }
-        else if (direction == 2)
-        {
-            rigidbody2D.velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x, -velocity);
-        }
-        else if (direction == 3)
-        {
-            rigidbody2D.velocity = new Vector2(this.GetComponent<Rigidbody2D>().velocity.x, velocity);
-        }
+        if (direction == 0 || direction == 1)
+            temp.y = rigidbody2D.velocity.y;
         else
-        {
-            throw new System.Exception("unknown direction");
-        }
+            temp.x = rigidbody2D.velocity.x;
+
+        rigidbody2D.velocity = temp;
 
     }
 
     //This method applies force as the second parameter.
     public void GiveForce(int direction, float force)
     {
-
-        if (direction == 0)
-        {
-            rigidbody2D.AddForce(new Vector2(-force, 0));
-        }
-        else if (direction == 1)
-        {
-            rigidbody2D.AddForce(new Vector2(force, 0));
-        }
-        else if (direction == 2)
-        {
-            rigidbody2D.AddForce(new Vector2(0, -force));
-        }
-        else if (direction == 3)
-        {
-            rigidbody2D.AddForce(new Vector2(0, force));
-        }
-        else
-        {
-            throw new System.Exception("unknown direction");
-        }
-
+        rigidbody2D.AddForce(force * CONSTANTS.DIRECTIONS[direction]);
     }
 
 

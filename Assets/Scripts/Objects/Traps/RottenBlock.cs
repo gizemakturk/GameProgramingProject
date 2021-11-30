@@ -10,7 +10,7 @@ public class RottenBlock : MonoBehaviour
     private Cooldown dropCooldown;
     private Cooldown destroyCooldown;
 
-    void Start()
+    public void Start()
     {
         
     }
@@ -18,20 +18,24 @@ public class RottenBlock : MonoBehaviour
     private bool drop;
 
     // it shake and drop when player detected then destroy itself
-    void FixedUpdate()
+    public void FixedUpdate()
     {
-        
 
         if (playerDetected)
         {
 
-            if (!drop&&GetDropCooldown().Control())
+            if (!drop)
             {
-                drop = true;
-            }
-            else if(!drop)
-            {
-                Shake();
+
+                if (GetDropCooldown().Control())
+                {
+                    drop = true;
+                }
+                else
+                {
+                    Shake();
+                }
+
             }
             else
             {
@@ -39,6 +43,7 @@ public class RottenBlock : MonoBehaviour
                 if (GetDestroyCooldownn().Control())
                     Destroy(this.gameObject);
             }
+
 
         }
 
@@ -50,7 +55,6 @@ public class RottenBlock : MonoBehaviour
     // shaking until drop
     private void Shake()
     {
-
         transform.position = new Vector2(transform.position.x + shakeSpeed, transform.position.y);
         shakeSpeed *= -1;
     }
@@ -60,49 +64,37 @@ public class RottenBlock : MonoBehaviour
     //drop when cd is over
     private void Drop()
     {
-
         transform.position = new Vector2(transform.position.x,transform.position.y-dropSpeed);
-
     }
 
-    private Cooldown GetDropCooldown()
-    {
-        if (dropCooldown == null)
-        {
-            dropCooldown = new Cooldown(1500);
-        }
-
-        return dropCooldown;
-
-    }
-
-    private Cooldown GetDestroyCooldownn()
-    {
-        if (destroyCooldown == null)
-        {
-            destroyCooldown = new Cooldown(4000);
-        }
-
-        return dropCooldown;
-
-    }
 
 
     private bool playerDetected;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
         string tag = collision.gameObject.tag;
-
-        if (tag == Constants.playerTag)
-        {
+        if (tag == CONSTANTS.PLAYER_TAG)
             playerDetected = true;
-        }
-
-
     }
 
 
+
+    /* get-set */
+    private Cooldown GetDropCooldown()
+    {
+        if (dropCooldown == null)
+            dropCooldown = new Cooldown(1500);
+        return dropCooldown;
+    }
+
+    private Cooldown GetDestroyCooldownn()
+    {
+        if (destroyCooldown == null)
+            destroyCooldown = new Cooldown(4000);
+        return dropCooldown;
+    }
+
+    /* end get-set */
 
 }

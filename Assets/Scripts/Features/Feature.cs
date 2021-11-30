@@ -5,8 +5,6 @@ using UnityEngine;
 public interface Feature
 {
 
-    public void Init();
 
-    public void Tick();
 
 }

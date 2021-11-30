@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 3767507324602832889}
   - component: {fileID: 3767507324602832894}
   - component: {fileID: 3767507324602832839}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: gator
   m_TagString: Gator
   m_Icon: {fileID: 0}
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3fa8ec6cebe70a4e8f967941acac528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: 0
   verticalDir: 2
   verticalSpeed: 0
   maxDistance: 0.2
@@ -147,10 +146,7 @@ MonoBehaviour:
   maxVelocity: 3
   jump: 0
   jumpCD: 300
-  minSpeed: 2
-  goLeftFlag: 0
-  goRightFlag: 0
-  jumpFlag: 0
+  minSpeed: 0
 --- !u!114 &3767507324602832838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,11 +160,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  tossing: 4
-  tossingUp: 2
+  tossingTargetHorizontal: 4
+  tossingTargetUp: 4
   attackPower: 1
-  cooldown: 100
-  attackedFlag: 0
+  cooldown: 1000
 --- !u!114 &3767507324602832837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 1
   currentHp: 1
-  damagedFlag: 0
   waitForDestroy: 0.5
 --- !u!61 &3767507324602832889
 BoxCollider2D:

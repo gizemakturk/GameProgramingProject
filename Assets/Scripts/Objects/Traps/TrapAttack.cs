@@ -4,42 +4,34 @@ using UnityEngine;
 
 public class TrapAttack : Attack
 {
-    protected override bool GiveDamageTag(string tag)
+
+
+
+    public void Start()
     {
-        return tag == "Player";
+        base.Start();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Init();
-    }
+    
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void FixedUpdate()
     {
-        Tick();
+        base.FixedUpdate();
     }
 
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
-
-
         if (active)
         {
-
+            int layer = collision.gameObject.layer;
             string tag = collision.gameObject.tag;
-            if (GiveDamageTag(tag))
+            if (CanGiveDamage(layer,tag))
             {
                 Damageability damageModule = collision.gameObject.GetComponent<Damageability>();
                 AttackWithContact(damageModule);
             }
-
-
         }
-
 
     }
 
@@ -48,51 +40,33 @@ public class TrapAttack : Attack
     protected void AttackWithContact(Damageability destination)
     {
 
-        if (GetAttackCooldown().Control())
+        MobMovement movement = destination.gameObject.GetComponent<MobMovement>();
+        float temp = this.transform.position.x - movement.transform.position.x;
+
+        if (temp > 0)
         {
-
-            destination.TakeDamage(attackPower);
-            MobMovement movement = destination.gameObject.GetComponent<MobMovement>();
-            float temp = this.transform.position.x - movement.transform.position.x;
-
-            if (temp > 0)
-            {
-                movement.SetVelocity(0, tossing);
-            }
-            else
-            {
-                movement.SetVelocity(1, tossing);
-
-            }
-                
-
-            movement.SetVelocity(3, tossingUp);
-
+            movement.SetVelocity(0, tossingTargetHorizontal);
         }
         else
         {
+            movement.SetVelocity(1, tossingTargetHorizontal);
+        }
 
-            MobMovement movement = destination.gameObject.GetComponent<MobMovement>();
-            float temp = this.transform.position.x - movement.transform.position.x;
-
-            if (temp > 0)
-            {
-                movement.SetVelocity(0, tossing);
-            }
-            else
-            {
-                movement.SetVelocity(1, tossing);
-
-            }
-                
-
-            movement.SetVelocity(3, tossingUp);
+        movement.SetVelocity(3, tossingTargetUp);
 
 
+        if (GetAttackCooldown().Control())
+        {
+            destination.TakeDamage(attackPower);
         }
 
 
 
+    }
+
+    protected override bool CanGiveDamage(int layer, string tag)
+    {
+        return tag == "Player";
     }
 
 

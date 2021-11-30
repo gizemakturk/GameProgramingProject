@@ -20,26 +20,38 @@ public class UpBound : Bound
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.layer == 3 || collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.layer == CONSTANTS.GROUND_LAYER
+            || collision.gameObject.layer == CONSTANTS.ENEMY_LAYER)
             contactWithGround = true;
 
         if (!contacts.Contains(collision.gameObject.tag))
         {
-
-            contacts.Add(collision.gameObject.tag);
+            contacts.Add(collision.gameObject.tag); 
         }
+
+        if (!contacts.Contains(collision.gameObject.layer))
+        {
+            contacts.Add(collision.gameObject.layer);
+        }
+        
 
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.layer == 3 || collision.gameObject.tag == "Enemy" )
+        if (collision.gameObject.layer == CONSTANTS.GROUND_LAYER
+            || collision.gameObject.layer == CONSTANTS.ENEMY_LAYER)
             contactWithGround = true;
 
         if (!contacts.Contains(collision.gameObject.tag))
         {
             contacts.Add(collision.gameObject.tag);
+        }
+
+        if (!contacts.Contains(collision.gameObject.layer))
+        {
+            contacts.Add(collision.gameObject.layer);
         }
 
     }
@@ -48,12 +60,18 @@ public class UpBound : Bound
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        if (collision.gameObject.layer == 3 || collision.gameObject.tag == "Enemy" )
-            contactWithGround = false;
+        if (collision.gameObject.layer == CONSTANTS.GROUND_LAYER
+            || collision.gameObject.layer == CONSTANTS.ENEMY_LAYER)
+            contactWithGround = true;
 
         if (contacts.Contains(collision.gameObject.tag))
         {
             contacts.Remove(collision.gameObject.tag);
+        }
+
+        if (contacts.Contains(collision.gameObject.layer))
+        {
+            contacts.Remove(collision.gameObject.layer);
         }
 
     }

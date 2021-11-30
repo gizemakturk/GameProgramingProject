@@ -20,9 +20,9 @@ public class MobMovement : Movement
 
     private int direction=1;
     
-    public bool goLeftFlag;     //  a controller set this flag if it wants to go left
-    public bool goRightFlag;    //  a controller set this flag if it wants to go right
-    public bool jumpFlag;       //  a controller set this flag if it wants to jump
+    private bool goLeftFlag;     //  a controller set this flag if it wants to go left
+    private bool goRightFlag;    //  a controller set this flag if it wants to go right
+    private bool jumpFlag;       //  a controller set this flag if it wants to jump
 
 
     //---------------------------------------------------------------
@@ -45,28 +45,12 @@ public class MobMovement : Movement
 
 
 
-
-
-    private void Start()
+    public void Start()
     {
 
-        Init();
-
-    }
-
-    private void FixedUpdate()
-    {
-
-        Tick();
-
-    }
-
-    protected new void Init()
-    {
-
-        base.Init();
+        base.Start();
         jumpCooldown = new Cooldown(jumpCD);
-        
+
         leftBound = GetComponentInChildren<LeftBound>();
         rightBound = GetComponentInChildren<RightBound>();
         upBound = GetComponentInChildren<UpBound>();
@@ -74,13 +58,14 @@ public class MobMovement : Movement
 
     }
 
-    protected new void Tick()
+    public void FixedUpdate()
     {
 
         Move();
-        base.Tick();
+        base.FixedUpdate();
 
     }
+
     
 
     private bool secondJump = false;
@@ -91,33 +76,21 @@ public class MobMovement : Movement
     {
         
         if (!OnGround())
-        {
             ExtraFriction = friction;
-        }
         else
-        {
             ExtraFriction = 0;
-        }
 
 
         if (goLeftFlag)
-        {
-
             GoLeft();
-
-        }
-
         if (goRightFlag)
-        {
             GoRight();
-            
-        }
-
 
         if (CanJump())
         {
             Jump();
         }
+
 
 
         ArrangeScale(direction);
@@ -183,7 +156,8 @@ public class MobMovement : Movement
             secondJump = true;
             return true;
         }
-        else if(secondJump && jumpFlag && GetJumpCooldown().Control()) {
+        else if (secondJump && jumpFlag && GetJumpCooldown().Control())
+        {
 
             secondJump = false;
             return true;
@@ -215,43 +189,24 @@ public class MobMovement : Movement
     private void ArrangeScale(int direction)
     {
 
-
-        if (direction == 0)
+        if (direction == 0 && transform.localScale.x>0)
         {
-            if (this.transform.localScale.x > 0)
-            {
-
                 this.transform.localScale = new Vector2(-1 * this.transform.localScale.x, this.transform.localScale.y);
-
-
                 Vector2 posLeft = this.leftBound.transform.position;
                 Vector2 posRight = this.rightBound.transform.position;
 
                 this.leftBound.transform.position = posRight;
                 this.rightBound.transform.position = posLeft;
-
-
-
-            }
 
         }
-        else if (direction == 1)
+        else if (direction == 1 && transform.localScale.x < 0)
         {
-
-            if (this.transform.localScale.x < 0)
-            {
-
                 this.transform.localScale = new Vector2(-1 * this.transform.localScale.x, this.transform.localScale.y);
-
-
                 Vector2 posLeft = this.leftBound.transform.position;
                 Vector2 posRight = this.rightBound.transform.position;
 
                 this.leftBound.transform.position = posRight;
                 this.rightBound.transform.position = posLeft;
-
-
-            }
 
         }
 

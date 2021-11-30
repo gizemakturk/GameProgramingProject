@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 6663876990152796412}
   - component: {fileID: 6663876990152796413}
   - component: {fileID: 6663876990152796411}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ant
   m_TagString: Ant
   m_Icon: {fileID: 0}
@@ -430,7 +430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f91270d13782fa4f935ce1ca1d6deb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dir: 0
 --- !u!114 &6663876990152796412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,7 +444,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 1
   currentHp: 1
-  damagedFlag: 0
   waitForDestroy: 0.5
 --- !u!114 &6663876990152796413
 MonoBehaviour:
@@ -466,9 +464,6 @@ MonoBehaviour:
   jump: 0
   jumpCD: 300
   minSpeed: 1
-  goLeftFlag: 0
-  goRightFlag: 0
-  jumpFlag: 0
 --- !u!114 &6663876990152796411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,11 +477,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 1
-  tossing: 4
-  tossingUp: 2
+  tossingTargetHorizontal: 4
+  tossingTargetUp: 2
   attackPower: 1
   cooldown: 1000
-  attackedFlag: 0
 --- !u!1 &4436467604781476464
 GameObject:
   m_ObjectHideFlags: 0

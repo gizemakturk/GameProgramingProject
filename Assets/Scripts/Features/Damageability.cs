@@ -19,33 +19,20 @@ public class Damageability :MonoBehaviour, Feature
 
     //----Flags-----
 
-    public bool damagedFlag;
+    private bool damagedFlag;
 
     //---------
 
-
-
-    public void Init()
+    
+    public void Start()
     {
 
     }
 
-    public void Tick()
+    public void FixedUpdate()
     {
+
         ControlAlive();
-    }
-
-    private void Start()
-    {
-
-        Init();
-
-    }
-
-    private void FixedUpdate()
-    {
-
-        Tick();
 
     }
 
@@ -66,16 +53,13 @@ public class Damageability :MonoBehaviour, Feature
             }
             if (waitForDestroy <= 0)
             {
-
-
                 if(this.gameObject.tag!="Player")
                     Destroy(this.gameObject);
                 else
                 {
-                    //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                    HUD.PopUpMenuDied.enabled = true;
+
+                    HUD.GETHUD().popUpMenuDied.SetActive(true);
                 }
-                
 
             }
                 
@@ -85,7 +69,7 @@ public class Damageability :MonoBehaviour, Feature
     }
 
     // This method decreases current hp.
-    public void TakeDamage(int val) {
+    public virtual void TakeDamage(int val) {
 
         if (val <= 0)
         {
@@ -104,6 +88,7 @@ public class Damageability :MonoBehaviour, Feature
     public int CurrentHp { get => currentHp; set => currentHp = value; }
     public int MaxHp { get => maxHp; set => maxHp = value; }
     public bool Alive { get => alive; set => alive = value; }
+    public bool DamagedFlag { get => damagedFlag; set => damagedFlag = value; }
 
     //------------------------------
 

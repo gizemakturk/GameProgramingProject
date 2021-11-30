@@ -50,7 +50,7 @@ public class Blade : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         string tag = collision.tag;
-        if (Constants.GetBladeChangeDirection().Contains(tag))
+        if (CONSTANTS.BLADE_CHANGE_DIRECTION_LIST.Contains(tag))
         {
             changeDir = true;
         }

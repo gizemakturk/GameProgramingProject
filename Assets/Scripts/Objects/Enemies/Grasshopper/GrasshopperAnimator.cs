@@ -4,44 +4,40 @@ using UnityEngine;
 
 public class GrasshopperAnimator : Animation
 {
-    protected override void AnimatorContor(int code)
+
+    private static Dictionary<int, string> triggers;
+
+    protected override Dictionary<int,string> GetTriggers()
     {
 
-        if (code == 1)
-        {
+        if (triggers != null)
+            return triggers;
 
-            this.animator.SetTrigger("hurt");
+        Dictionary<int, string> temp = new Dictionary<int, string>();
 
-        }
-        else if(code == 2)
-        {
+        temp.Add(1, "hurt");
+        temp.Add(2, "idle");
+        temp.Add(3, "jump");
+        temp.Add(4, "fall");
 
-            this.animator.SetTrigger("idle");
+        triggers = temp;
 
-        }
-        else if(code == 3)
-        {
+        return triggers;
+    }
 
-            this.animator.SetTrigger("jump");
+ 
 
-        }
-        else if (code == 4)
-        {
+    public void Start()
+    {
 
-            this.animator.SetTrigger("fall");
+        base.Start();
+    }
 
-        }
+    public void FixedUpdate()
+    {
+
+        base.FixedUpdate();
 
     }
 
-    void Start()
-    {
-        Init();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Tick();
-    }
 }

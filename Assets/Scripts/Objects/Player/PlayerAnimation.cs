@@ -6,7 +6,27 @@ public class PlayerAnimation : Animation
 {
 
 
-    private PlayerController playerController;
+    private static Dictionary<int, string> triggers;
+
+    protected override Dictionary<int, string> GetTriggers()
+    {
+
+        if (triggers != null)
+            return triggers;
+
+        Dictionary<int, string> temp = new Dictionary<int, string>();
+
+        temp.Add(0, "idle");
+        temp.Add(1, "run");
+        temp.Add(2, "jump");
+        temp.Add(4, "hurt");
+        triggers = temp;
+        return triggers;
+
+    }
+
+
+    private Player player;
 
 
     //------CDs----------
@@ -14,23 +34,26 @@ public class PlayerAnimation : Animation
     //--------------------
 
 
-    private void Start()
+    public void Start()
     {
-        Init();
-        playerController = GetComponent<PlayerController>();
+
+        base.Start();
+        player = GetComponent<Player>();
     }
 
     private void FixedUpdate()
     {
-        Tick();
-        if (playerController.Damageability.damagedFlag)
+
+        base.FixedUpdate();
+        if (player.Damageability.DamagedFlag)
         {
             Blink();
         }
+
     }
 
 
-    
+
 
     // This method blink player when it get damage
     private void Blink()
@@ -44,46 +67,7 @@ public class PlayerAnimation : Animation
         {
             blinkCooldown = null;
             GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            playerController.Damageability.damagedFlag = false;
-        }
-
-    }
-
-
-
-    // idle : 0 | run : 1 | jump : 2 | hurt : 4
-    protected override void AnimatorContor(int code)
-    {
-        if(code == 4)
-        {
-            this.animator.ResetTrigger("idle");
-            this.animator.ResetTrigger("run");
-            this.animator.ResetTrigger("jump");
-            this.animator.SetTrigger("hurt");
-        }
-        else if (code == 2)
-        {
-
-            this.animator.ResetTrigger("idle");
-            this.animator.ResetTrigger("run");
-            this.animator.SetTrigger("jump");
-            this.animator.ResetTrigger("hurt");
-
-        }
-        else if (code == 1)
-        {
-            this.animator.ResetTrigger("idle");
-            this.animator.SetTrigger("run");
-            this.animator.ResetTrigger("jump");
-            this.animator.ResetTrigger("hurt");
-        }
-        else if (code == 0)
-        {
-
-            this.animator.SetTrigger("idle");
-            this.animator.ResetTrigger("run");
-            this.animator.ResetTrigger("jump");
-            this.animator.ResetTrigger("hurt");
+            player.Damageability.DamagedFlag = false;
         }
 
     }

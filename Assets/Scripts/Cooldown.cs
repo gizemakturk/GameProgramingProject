@@ -8,19 +8,18 @@ public class Cooldown
 
     private float cooldown;
 
-    private Stopwatch stopwatch = new Stopwatch();
+    private float lastTime;
 
 
     public Cooldown(float cooldown)
     {
-        SetCooldown(cooldown);
-        stopwatch.Start();
+        this.cooldown = cooldown;
+        lastTime = Time.realtimeSinceStartup;
     }
+
     public void SetCooldown(float cooldown)
     {
-
         this.cooldown = cooldown;
-
     }
 
     public bool Control()
@@ -28,29 +27,19 @@ public class Cooldown
 
         if (ElapsedTime() >= cooldown)
         {
-            stopwatch.Restart();
+            lastTime = Time.realtimeSinceStartup;
             return true;
         }
         else
-        {
-
             return false;
 
-        }
-
-        
     }
-
 
 
     public float ElapsedTime()
     {
 
-        stopwatch.Stop();
-        float et = stopwatch.ElapsedMilliseconds;
-        stopwatch.Start();
-        return et;
-
+        return (Time.realtimeSinceStartup - lastTime) * 1000;
     }
 
 }

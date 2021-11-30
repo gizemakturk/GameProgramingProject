@@ -8,71 +8,67 @@ public abstract class Attack :MonoBehaviour, Feature
 
 
     //---------Attributes--------------
-    public bool active = true;
-    public float tossing;
-    public float tossingUp;
-    public int attackPower;
+    public bool  active = true;
+    public float tossingTargetHorizontal;
+    public float tossingTargetUp;
+    public int   attackPower;
     public float cooldown = 1000;
     //---------------------------------
 
 
 
-    //---------Cooldowns------------------
+    /*  Cooldowns */
 
     private Cooldown attackCooldown;
 
-    //-----------------------------------
+    /* end Cooldowns */
 
 
-    //---------Flags--------------------
+    /*  Flags   */
 
-    public bool attackedFlag;
-
-    //----------------------------------
+    private bool attackedFlag;
 
 
-    public void Init()
-    {
-        attackCooldown = new Cooldown(cooldown); 
-    }
 
-    public void Tick()
+    /* end Flags   */
+
+
+    
+    public void Start()
     {
 
-    }
-
-    private void Start()
-    {
-
-        Init();
+        attackCooldown = new Cooldown(cooldown);
 
     }
 
 
-
-    private void FixedUpdate()
+    
+    
+    public void FixedUpdate()
     {
-        Tick();
+
     }
 
+   
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!active)
             return;
 
+        int layer = collision.gameObject.layer;
         string tag = collision.gameObject.tag;
-        if (GiveDamageTag(tag))
+        if (CanGiveDamage(layer,tag))
         {
             Damageability damageability = collision.gameObject.GetComponent<Damageability>();
             AttackWithContact(damageability);
         }
 
-    }
+    } 
 
 
     // This method check that it can attack the parameter
-    protected abstract bool GiveDamageTag(string tag);
+    protected abstract bool CanGiveDamage(int layer, string tag);
 
     // This method does damage to destination
     protected virtual void AttackWithContact(Damageability destination)
@@ -83,19 +79,19 @@ public abstract class Attack :MonoBehaviour, Feature
 
             destination.TakeDamage(attackPower);
 
-            MobMovement movement = destination.gameObject.GetComponent<MobMovement>();
-            float temp = this.transform.position.x - movement.transform.position.x;
+            Movement movement = destination.gameObject.GetComponent<Movement>();
+            float temp = transform.position.x - movement.transform.position.x;
 
             if (temp > 0)
             {
-                movement.SetVelocity(0, tossing);
+                movement.SetVelocity(0, tossingTargetHorizontal);
             }
             else
             {
-                movement.SetVelocity(1, tossing);
+                movement.SetVelocity(1, tossingTargetHorizontal);
             }
 
-            movement.SetVelocity(3,tossingUp);
+            movement.SetVelocity(3,tossingTargetUp);
             attackedFlag = true;
         }
             
@@ -104,6 +100,13 @@ public abstract class Attack :MonoBehaviour, Feature
     }
 
 
+
+    
+    
+
+
+
+    
     //----------Get-Set----------
 
     protected Cooldown GetAttackCooldown()
@@ -117,6 +120,10 @@ public abstract class Attack :MonoBehaviour, Feature
 
     }
 
+    public bool AttackedFlag { get => attackedFlag; set => attackedFlag = value; }
+
+   
+    
     //-----------------------------
 
 

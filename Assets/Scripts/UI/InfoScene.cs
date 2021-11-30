@@ -8,28 +8,23 @@ public class InfoScene : MonoBehaviour
 {
 
 
-    private static string info; // text in the screen
-    private static int go;      // the index of screen that will load
-    private static float wait;  // the time this screen is visibles
+    private static string infoText; // text in the screen
+    private static int nextSceneIndex;      // the index of screen that will load
+    private static float waitTime;  // the time this screen is visibles
 
+    public static string InfoText { get => infoText; set => infoText = value; }
 
-
-    public static string Info { get => info; set => info = value; }
-    public static int Go { get => go; set => go = value; }
-    public static float Wait { get => wait; set => wait = value; }
-
-
-
-
+    public static float WaitTime { get => waitTime; set => waitTime = value; }
+    public static int NextSceneIndex { get => nextSceneIndex; set => nextSceneIndex = value; }
 
     IEnumerator Start()
     {
 
         TMP_Text infoLabel = GetComponentInChildren<TMP_Text>();
-        infoLabel.text = info;
+        infoLabel.text = infoText;
         
-        yield return new WaitForSeconds(wait);
-        SceneManager.LoadScene(go);
+        yield return new WaitForSeconds(waitTime);
+        SceneManager.LoadScene(nextSceneIndex);
 
 
     }

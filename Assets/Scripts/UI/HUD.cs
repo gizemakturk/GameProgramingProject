@@ -8,86 +8,66 @@ using UnityEngine.UI;
 public class HUD : MonoBehaviour
 {
 
-    
-    public static int playerHp = 3;
-    public static int playerScore=0;
+
+    public  Image hpBarBase;
+
+    public  GameObject popUpMenu;
+        public GameObject settings;
+            public Slider sound;
+        public GameObject menu;
+
+    public  GameObject popUpMenuDied;
+
+    public  TMP_Text timeLabel;
+    public  TMP_Text scoreLabel;
 
 
-    // Methods are defined static to use without object of hub
-    // Unity don't allow static variables set in Unity
-    // Therefore, static variables set in Start with non static variables
-    public static Image hpBarBase;
-    public static Canvas PopUpMenu;
-    public static Canvas PopUpMenuDied;
-    public static TMP_Text timeLabel;
-    public static TMP_Text scoreLabel;
-    public static Canvas Settings;
-    public static Canvas Menu;
 
-
-    public Image hpBarBaseTemp;
-    public Canvas PopUpMenuTemp;
-    public Canvas PopUpMenuDiedTemp;
-    public TMP_Text timeLabelTemp;
-    public TMP_Text scoreLabelTemp;
-    public Canvas SettingsTemp;
-    public Canvas MenuTemp;
-
-
-    // Store sound
-    public static float sound;
-
-
-    public int maxTime=60;
+    public  int timeOut=60;
     private int currentTime=0;
 
     // Store last time of change timelabel
-    private static float lastTime;
+    private float lastTimeOfIncreaseSec;
+
 
 
     private void Start()
     {
-        PopUpMenu = PopUpMenuTemp;
-        PopUpMenu.enabled = false;
+        
+        hud = this;
 
-        PopUpMenuDied = PopUpMenuDiedTemp;
-        PopUpMenuDied.enabled = false;
+        popUpMenu.SetActive(false);
+        popUpMenuDied.SetActive(false);
+        settings.SetActive(false);
+        menu.SetActive(false);
 
-        Settings = SettingsTemp;
-        Settings.enabled = false;
-
-        Menu = MenuTemp;
-        Menu.enabled = false;
-
-        hpBarBase = hpBarBaseTemp;
-        timeLabel = timeLabelTemp;
-        timeLabel.text = maxTime.ToString();
-
-        scoreLabel = scoreLabelTemp;
-        scoreLabel.text = playerScore.ToString();
+        timeLabel.text  = timeOut.ToString();
+        scoreLabel.text = StaticVariables.PlayerScore.ToString();
 
 
 
-        lastTime = Time.realtimeSinceStartup;
+        lastTimeOfIncreaseSec = Time.realtimeSinceStartup;
 
-        GetComponentInChildren<Slider>().value = sound;
-
+        sound.value = StaticVariables.Sound;
+        
     }
 
 
     private void FixedUpdate()
     {
+
         // If the time is over, the player dies
         if (ControlMaxTime())
         {
-            PlayerController.Kill = true;
+
+            StaticVariables.ChangeHp(0);
             
         }
         else
         {
             UpdateTime();
         }
-
+        
     }
 
     
@@ -95,112 +75,101 @@ public class HUD : MonoBehaviour
     // Update time label with Time.realtimeSinceStartup - startTime if reaches next int value
     private void UpdateTime()
     {
-
-        float time = Time.realtimeSinceStartup - lastTime;
+        
+        float time = Time.realtimeSinceStartup - lastTimeOfIncreaseSec;
         
         if (time >= 1)
         {
 
             currentTime++;
-            timeLabel.text = (maxTime-currentTime).ToString();
-            lastTime = Time.realtimeSinceStartup;
+            timeLabel.text = (timeOut-currentTime).ToString();
+            lastTimeOfIncreaseSec = Time.realtimeSinceStartup;
         }
-
+        
 
 
     }
 
     // Increase score with parameter and update scoreLabel
-    public static void UpdateScore(int score)
+    public void UpdateScore(int score)
     {
-        playerScore += score;
-        scoreLabel.text = playerScore.ToString();
 
+        StaticVariables.PlayerScore += score;
+        scoreLabel.text = StaticVariables.PlayerScore.ToString();
+        
     }
 
     // Set score with parameter and update scoreLabel
-    public static void SetScore(int score)
+    public void SetScore(int score)
     {
-        playerScore = score;
-        scoreLabel.text = playerScore.ToString();
+
+        StaticVariables.PlayerScore = score;
+        scoreLabel.text = StaticVariables.PlayerScore.ToString();
 
     }
 
     // Control time
     private bool ControlMaxTime()
     {
-        return maxTime <= currentTime;
+        return timeOut <= currentTime;
     } 
 
 
 
     // Load MainMenu Sceen
-    public static void MainMenu()
+    public void MainMenu()
     {
-
-        if (!PopUpMenu.enabled && !PopUpMenuDied.enabled)
-        {
-            return;
-        }
-
 
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
-
+        
     }
 
     // Resume Current Sceen
-    public static void Resume()
+    public void Resume()
     {
 
-        PopUpMenu.enabled = false;
-        Settings.enabled = false;
+        popUpMenu.SetActive(false);
         Time.timeScale = 1;
-
+        
     }
 
     // Restart Current Sceen
-    public static void Restart()
+    public void Restart()
     {
-        if (!PopUpMenuDied.enabled)
-        {
-            return;
-        }
-
-        PopUpMenu.enabled = false;
-        Settings.enabled = false;
+        StaticVariables.PlayerCurrentHP = 3;
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-
+        
     }
 
 
     // Set visible Settings and hide Menu
-    public static void Setting()
+    public void Setting()
     {
 
-        Settings.enabled = true;
-        Menu.enabled = false;
-
+        settings.SetActive(true);
+        menu.SetActive(false);
+        
     }
 
     // Set visible Menu and hide Settings
-    public static void Apply()
+    public void Apply()
     {
 
-        Settings.enabled = false;
-        Menu.enabled = true;
+        settings.SetActive(false);
+        menu.SetActive(true);
 
     }
 
     // When esc is pressed, If PopUpMenu is active , resume game else set PopUpMenu is visible
-    public static void PopUpMenuControl()
+    public void PopUpMenuControl()
     {
-        
-        PopUpMenu.enabled = !PopUpMenu.enabled;
-        Menu.enabled = true;
-        Settings.enabled = false;
-        if (PopUpMenu.enabled)
+
+        popUpMenu.SetActive(!popUpMenu.activeInHierarchy);
+        menu.SetActive(true);
+
+        if (popUpMenu.activeInHierarchy)
         {
             Time.timeScale = 0;
         }   
@@ -209,35 +178,45 @@ public class HUD : MonoBehaviour
             Time.timeScale = 1;
            
         }
-            
+        
 
     }
 
 
     // Update hpbar with max and current hp
-    public static void UpdateHpBar(Damageability damageability)
+    public void UpdateHpBar(Damageability damageability)
     {
 
-        HUD.playerHp = damageability.currentHp;
-        int pix = 32;
-        int mHp = damageability.MaxHp;
-        int w = pix * mHp;
-        hpBarBase.rectTransform.sizeDelta = new Vector2(w, 32);
+        int pixels = 32;
+        int width = pixels * damageability.MaxHp;
+        hpBarBase.rectTransform.sizeDelta = new Vector2(width, 32);
 
-        int cHp = damageability.CurrentHp;
-        w = pix * cHp;
+        width = pixels * damageability.CurrentHp;
         Image hpBar = hpBarBase.GetComponentsInChildren<Image>()[1];
-        hpBar.rectTransform.sizeDelta = new Vector2(w, 32);
+        hpBar.rectTransform.sizeDelta = new Vector2(width, 32);
 
-
+        
     }
 
 
     // Sound set with slider.value
     public static void Sound(Slider slider)
     {
+        
+        StaticVariables.Sound = slider.value;
 
-        sound = slider.value;
+    }
+
+
+
+    private static HUD hud;
+
+    public static HUD GETHUD()
+    {
+        if (hud != null)
+            return hud;
+
+        return null;
 
     }
 

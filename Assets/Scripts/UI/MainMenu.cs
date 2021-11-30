@@ -14,17 +14,18 @@ public class MainMenu : MonoBehaviour
     // set sound value with static value in HUD
     private void Start()
     {
-        sound.value = HUD.sound;
+        sound.value = StaticVariables.Sound;
     }
 
 
     // Load info scene then info scene load level 1
     public void StartGame() {
 
-        InfoScene.Info = "Level 1";
-        InfoScene.Go = 1;
-        InfoScene.Wait = 1.5f;
-        SceneManager.LoadScene(Constants.INFO_SCENE());
+        StaticVariables.PlayerCurrentHP = 3;
+        InfoScene.InfoText = "Level 1";
+        InfoScene.NextSceneIndex = 1;
+        InfoScene.WaitTime = 1.5f;
+        SceneManager.LoadScene(CONSTANTS.INFO_SCENE_INDEX);
         
     }
 
@@ -49,8 +50,14 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(false);
 
     }
-    
 
+
+    public static void SetSound(Slider slider)
+    {
+
+        StaticVariables.Sound = slider.value;
+
+    }
 
 
 }

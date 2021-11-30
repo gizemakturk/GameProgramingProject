@@ -5,13 +5,13 @@ using UnityEngine;
 public class EndOfMap : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         
     }

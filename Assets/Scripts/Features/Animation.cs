@@ -11,23 +11,34 @@ public abstract class Animation : MonoBehaviour, Feature
 
     public int Code { get => code; set => code = value; }
 
-    public void Init()
+    public void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-
-    public void Tick()
+    public void FixedUpdate()
     {
-
+        ResetAnimatorTriggers();
         AnimatorContor(code);
-
     }
 
+
     // This method triggers the desired animator trigger
-    protected abstract void AnimatorContor(int code);
-    
+    private void AnimatorContor(int code)
+    {
+        if (GetTriggers().ContainsKey(code))
+            this.animator.SetTrigger(GetTriggers()[code]);
+    }
+
+    private void ResetAnimatorTriggers()
+    {
+        foreach (var item in GetTriggers())
+        {
+            this.animator.ResetTrigger(item.Value);
+        }
+    }
 
 
+    protected abstract Dictionary<int, string> GetTriggers();
 
 }

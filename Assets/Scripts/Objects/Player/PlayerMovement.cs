@@ -6,16 +6,18 @@ public class PlayerMovement : MobMovement
 {
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        Init();
+
+        base.Start();
     }
 
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
-        
-        Tick();
+
+
+        base.FixedUpdate();
     }
 
 
