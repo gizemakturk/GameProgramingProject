@@ -34,26 +34,40 @@ public class CONSTANTS
     public readonly static int BOUND_LAYER = 6;
     public readonly static int GHOSTGROUND_LAYER = 7;
     public readonly static int ENEMY_LAYER = 8;
+    public readonly static int ITEM_LAYER = 9;
 
     /*  end Layers  */
 
 
     /*  Tags  */
 
-    //      player
+        //      player
     public readonly static string PLAYER_TAG = "Player";
 
-    //      Enemies
+        //      Enemies
     public readonly static string ANT_TAG = "Ant";
     public readonly static string GATOR_TAG = "Gator";
     public readonly static string GLASSHOPPER_TAG = "Glasshooper";
 
-    //      Others
+        //      Others
     public readonly static string GROUND_TAG = "Ground";
     public readonly static string CHANGEDIRECTION_TAG = "ChangeDirection";
 
+        //      Items
+    public readonly static string HEART_TAG = "Heart";
+    public readonly static string ACORN_TAG = "Acorn";
 
     /*  end Tags  */
+
+
+
+
+    /*  Scores  */
+
+    public readonly static int ACORN_SCORE = 100;
+
+    /* end Scores  */
+
 
 
 
@@ -162,5 +176,9 @@ public class CONSTANTS
     }
 
 
-
+    public static IEnumerator WaitAndLoad(float wait, int next)
+    {
+        yield return new WaitForSeconds(wait);
+        SceneManager.LoadScene(next);
+    }
 }
