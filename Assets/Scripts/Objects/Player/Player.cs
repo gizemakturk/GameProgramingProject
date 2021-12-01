@@ -41,12 +41,7 @@ public class Player : Controller
         AnimatorMethod();
 
         if (damageability.Alive == false)
-        {
-
             return;
-            
-        }
-            
 
         if (damageability.DamagedFlag )
         {
@@ -66,7 +61,8 @@ public class Player : Controller
             movement.GoLeftFlag = true;
         if (Input.GetKey("d")) 
             movement.GoRightFlag = true;
-        if (Input.GetKeyDown("space") && GetJumpCooldown().Control()) 
+        if ((movement.OnGround() || movement.SecondJump) 
+            && Input.GetKeyDown("space") && GetJumpCooldown().Control()) 
             movement.JumpFlag = true;
         if (Input.GetKeyDown("escape"))
             HUD.GETHUD().PopUpMenuControl();
@@ -128,19 +124,7 @@ public class Player : Controller
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (!damageability.Alive)
-            return;
-
-        int layer = collision.gameObject.layer;
         string tag = collision.gameObject.tag;
-        
-        if(layer == CONSTANTS.ITEM_LAYER)
-        {
-
-            OnTriggerWithItem(collision);
-        }
-
-
         if (tag == "Finish")
         {
             InfoScene.NextSceneIndex = SceneManager.GetActiveScene().buildIndex+1;
@@ -152,41 +136,13 @@ public class Player : Controller
             else
                 InfoScene.InfoText = "Level " + (InfoScene.NextSceneIndex);
 
-            Destroy(collision.gameObject);
             InfoScene.WaitTime = 1.5f;
-            Music.GETMUSIC().WinEffect(transform.position);
-            IEnumerator coroutine = CONSTANTS.WaitAndLoad(0.9f, CONSTANTS.INFO_SCENE_INDEX);
-            StartCoroutine(coroutine);
+            SceneManager.LoadScene(CONSTANTS.INFO_SCENE_INDEX);
+
         }
 
     }
 
-
-
-
-
-
-    private void OnTriggerWithItem(Collider2D collision)
-    {
-
-        string tag = collision.gameObject.tag;
-        if (tag == CONSTANTS.HEART_TAG && damageability.CurrentHp!=damageability.MaxHp)
-        {
-            StaticVariables.ChangeHp(StaticVariables.PlayerCurrentHP + 1);
-            Destroy(collision.gameObject);
-            Music.GETMUSIC().TakeItemEffect1(transform.position);
-            return;
-        }
-
-        if (tag == CONSTANTS.ACORN_TAG)
-        {
-            StaticVariables.IncreaseScore(CONSTANTS.ACORN_SCORE);
-            Destroy(collision.gameObject);
-            Music.GETMUSIC().TakeItemEffect1(transform.position);
-            return;
-        }
-
-    }
     
 
 

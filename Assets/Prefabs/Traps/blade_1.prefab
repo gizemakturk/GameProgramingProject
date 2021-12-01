@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 6
-  velocityVertical: 0
+  velocityVertical: 1
   velocityHorizontal: 0
   directionLeft: 1
   directionUp: 1

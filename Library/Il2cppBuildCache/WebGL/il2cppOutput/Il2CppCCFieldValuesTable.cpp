@@ -1524,51 +1524,46 @@ IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2458[2];
 IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2461[1];
 IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2464[1];
 IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2467[2];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2472[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2471[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2472[1];
 IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2473[1];
 IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2474[1];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2475[1];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2477[9];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2478[8];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2479[7];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2480[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2476[9];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2477[8];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2478[7];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2479[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2481[5];
 IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2482[5];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2483[5];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2484[1];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2486[7];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2491[4];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2492[21];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2493[2];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2494[2];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2495[7];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2496[5];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2498[15];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2499[5];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2500[14];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2503[1];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2504[6];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2507[6];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2508[1];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2509[2];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2510[1];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2511[2];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2517[3];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2518[2];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2519[2];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2520[8];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2521[3];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2522[3];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2523[1];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2525[8];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2526[5];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2527[6];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2529[3];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2530[12];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2531[3];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2532[3];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2533[4];
-IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2534[3];
-IL2CPP_EXTERN_C_CONST int32_t* g_FieldOffsetTable[2535] = 
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2483[1];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2485[7];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2490[17];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2491[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2492[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2493[7];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2494[5];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2496[15];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2497[5];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2500[1];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2501[6];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2503[6];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2504[1];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2505[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2506[1];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2507[2];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2513[3];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2514[8];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2515[3];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2516[3];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2517[1];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2519[8];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2520[5];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2521[6];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2523[3];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2524[12];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2525[3];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2526[3];
+IL2CPP_EXTERN_C_CONST int32_t g_FieldOffsetTable2527[3];
+IL2CPP_EXTERN_C_CONST int32_t* g_FieldOffsetTable[2528] = 
 {
 	NULL,
 	NULL,
@@ -4041,68 +4036,61 @@ IL2CPP_EXTERN_C_CONST int32_t* g_FieldOffsetTable[2535] =
 	NULL,
 	NULL,
 	NULL,
-	NULL,
+	g_FieldOffsetTable2471,
 	g_FieldOffsetTable2472,
 	g_FieldOffsetTable2473,
 	g_FieldOffsetTable2474,
-	g_FieldOffsetTable2475,
 	NULL,
+	g_FieldOffsetTable2476,
 	g_FieldOffsetTable2477,
 	g_FieldOffsetTable2478,
 	g_FieldOffsetTable2479,
-	g_FieldOffsetTable2480,
 	NULL,
+	g_FieldOffsetTable2481,
 	g_FieldOffsetTable2482,
 	g_FieldOffsetTable2483,
-	g_FieldOffsetTable2484,
 	NULL,
-	g_FieldOffsetTable2486,
-	NULL,
+	g_FieldOffsetTable2485,
 	NULL,
 	NULL,
 	NULL,
+	NULL,
+	g_FieldOffsetTable2490,
 	g_FieldOffsetTable2491,
 	g_FieldOffsetTable2492,
 	g_FieldOffsetTable2493,
 	g_FieldOffsetTable2494,
-	g_FieldOffsetTable2495,
+	NULL,
 	g_FieldOffsetTable2496,
+	g_FieldOffsetTable2497,
 	NULL,
-	g_FieldOffsetTable2498,
-	g_FieldOffsetTable2499,
+	NULL,
 	g_FieldOffsetTable2500,
-	NULL,
+	g_FieldOffsetTable2501,
 	NULL,
 	g_FieldOffsetTable2503,
 	g_FieldOffsetTable2504,
-	NULL,
-	NULL,
+	g_FieldOffsetTable2505,
+	g_FieldOffsetTable2506,
 	g_FieldOffsetTable2507,
-	g_FieldOffsetTable2508,
-	g_FieldOffsetTable2509,
-	g_FieldOffsetTable2510,
-	g_FieldOffsetTable2511,
 	NULL,
 	NULL,
 	NULL,
 	NULL,
 	NULL,
+	g_FieldOffsetTable2513,
+	g_FieldOffsetTable2514,
+	g_FieldOffsetTable2515,
+	g_FieldOffsetTable2516,
 	g_FieldOffsetTable2517,
-	g_FieldOffsetTable2518,
+	NULL,
 	g_FieldOffsetTable2519,
 	g_FieldOffsetTable2520,
 	g_FieldOffsetTable2521,
-	g_FieldOffsetTable2522,
-	g_FieldOffsetTable2523,
 	NULL,
+	g_FieldOffsetTable2523,
+	g_FieldOffsetTable2524,
 	g_FieldOffsetTable2525,
 	g_FieldOffsetTable2526,
 	g_FieldOffsetTable2527,
-	NULL,
-	g_FieldOffsetTable2529,
-	g_FieldOffsetTable2530,
-	g_FieldOffsetTable2531,
-	g_FieldOffsetTable2532,
-	g_FieldOffsetTable2533,
-	g_FieldOffsetTable2534,
 };

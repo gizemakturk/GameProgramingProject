@@ -13,8 +13,6 @@ TagManager:
   - Glasshooper
   - ChangeDirection
   - Gator
-  - Heart
-  - Acorn
   layers:
   - Default
   - TransparentFX
@@ -25,7 +23,7 @@ TagManager:
   - Bound
   - GhostGround
   - Enemy
-  - Item
+  - 
   - 
   - 
   - 
