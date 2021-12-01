@@ -79,7 +79,12 @@ public class MobMovement : Movement
         if (!OnGround())
             ExtraFriction = friction;
         else
+        {
+
             ExtraFriction = 0;
+            secondJump = false;
+        }
+            
 
 
         if (goLeftFlag)
@@ -153,24 +158,32 @@ public class MobMovement : Movement
     // This method check that jump request is valid
     private bool CanJump()
     {
-
-        if ((jumpFlag && this.OnGround() && GetJumpCooldown().Control()))
+        if (secondJump)
         {
-            secondJump = true;
-            return true;
+            jumpFlag = false;
+            return false;
         }
-        else if (secondJump && jumpFlag && GetJumpCooldown().Control())
+            
+
+        if (jumpFlag && GetJumpCooldown().Control())
         {
 
-            secondJump = false;
-            return true;
+            if (OnGround())
+            {
+                secondJump = false;
+                return true;
+            }
+            else
+            {
+                secondJump = true;
+                return true;
+
+            }
+
         }
         else
-        {
-
             return false;
 
-        }
 
     }
 
@@ -178,11 +191,12 @@ public class MobMovement : Movement
     private void Jump()
     {
 
-        if (GetVelocity().y==0)
+        if (!secondJump)
             SetVelocity(3,this.jump);
         else
             SetVelocity(3,this.jump / 1.2f);
 
+        Music.GETMUSIC().JumpEffect1(transform.position);
         jumpFlag = false;
 
 

@@ -57,7 +57,7 @@ public class Damageability :MonoBehaviour, Feature
                     Destroy(this.gameObject);
                 else
                 {
-
+                    
                     HUD.GETHUD().popUpMenuDied.SetActive(true);
                 }
 
@@ -71,7 +71,7 @@ public class Damageability :MonoBehaviour, Feature
     // This method decreases current hp.
     public virtual void TakeDamage(int val) {
 
-        if (val <= 0)
+        if (currentHp <= 0)
         {
             alive = false;
             return;

@@ -23,6 +23,7 @@ public class PlayerDamageability : Damageability
         {
             currentHp = StaticVariables.PlayerCurrentHP;
             changeHp = false;
+            HUD.GETHUD().UpdateHpBar(this);
         }
 
         base.FixedUpdate();
@@ -32,9 +33,15 @@ public class PlayerDamageability : Damageability
 
     public override void TakeDamage(int val)
     {
+        if (currentHp <= 0)
+            return;
 
+        Music.GETMUSIC().HurtEffect1(transform.position);
         base.TakeDamage(val);
         StaticVariables.PlayerCurrentHP = currentHp;
+
+        if(currentHp<=0)
+            Music.GETMUSIC().LostEffect(transform.position);
 
     }
 
