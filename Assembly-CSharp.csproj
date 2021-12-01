@@ -59,15 +59,12 @@
     <Compile Include="Assets\Scripts\Objects\Other\Bound\DownBound.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Grasshopper\GrasshopperAnimator.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\GhostGround.cs" />
-    <Compile Include="Assets\Scripts\Objects\Other\Items\Heart.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Gator\GatorAnimator.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\PlayerDamageability.cs" />
-    <Compile Include="Assets\Scripts\Music.cs" />
-    <Compile Include="Assets\Scripts\StaticVariables.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\Bound\UpBound.cs" />
     <Compile Include="Assets\Scripts\UI\HUD.cs" />
     <Compile Include="Assets\Scripts\Features\Attack.cs" />
@@ -79,7 +76,6 @@
     <Compile Include="Assets\Scripts\Features\Animation.cs" />
     <Compile Include="Assets\Scripts\Objects\Traps\RottenBlock.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\PlayerAnimation.cs" />
-    <Compile Include="Assets\Scripts\Objects\Other\Items\Acorn.cs" />
     <Compile Include="Assets\Scripts\Objects\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\Bound\RightBound.cs" />
@@ -93,7 +89,7 @@
     <Compile Include="Assets\Scripts\CONSTANTS.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Grasshopper\Grasshopper.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
-    <Compile Include="Assets\Scripts\Objects\Enemies\EnemyDamageability.cs" />
+    <Compile Include="Assets\Scripts\StaticVariables.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

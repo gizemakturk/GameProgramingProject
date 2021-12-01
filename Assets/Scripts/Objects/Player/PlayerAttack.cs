@@ -46,10 +46,6 @@ public class PlayerAttack : Attack
             AttackWithContact(damageability);
             playerMovement.SetVelocity(3, playerMovement.jump);
 
-
-            if (damageability.currentHp == 0)
-                StaticVariables.IncreaseScore(100);
-
             /*
             int layer = collision.gameObject.layer;
             string tag = collision.gameObject.tag;

@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 1988591048920979344}
   - component: {fileID: 1988591048920979345}
   - component: {fileID: 1988591048920979346}
+  - component: {fileID: 1988591048920979347}
   - component: {fileID: 1988591048920979348}
-  - component: {fileID: -8269895768928302139}
   m_Layer: 8
   m_Name: grasshopper
   m_TagString: Glasshooper
@@ -204,6 +204,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 038dd6963454824468adc7fc391bd07d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1988591048920979347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988591048920979338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3864d786bdfe252428fc3bacb76843a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 1
+  currentHp: 1
+  waitForDestroy: 0.5
 --- !u!114 &1988591048920979348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,21 +236,6 @@ MonoBehaviour:
   tossingTargetUp: 2
   attackPower: 1
   cooldown: 1000
---- !u!114 &-8269895768928302139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988591048920979338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8e6692afbb3f40479f6cea84f779d9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 1
-  currentHp: 1
-  waitForDestroy: 0.5
 --- !u!1001 &911089480506851297
 PrefabInstance:
   m_ObjectHideFlags: 0

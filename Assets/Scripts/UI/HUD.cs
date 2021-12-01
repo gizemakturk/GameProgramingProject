@@ -90,9 +90,10 @@ public class HUD : MonoBehaviour
     }
 
     // Increase score with parameter and update scoreLabel
-    public void UpdateScore()
+    public void UpdateScore(int score)
     {
 
+        StaticVariables.PlayerScore += score;
         scoreLabel.text = StaticVariables.PlayerScore.ToString();
         
     }
@@ -117,9 +118,10 @@ public class HUD : MonoBehaviour
     // Load MainMenu Sceen
     public void MainMenu()
     {
+
+        SceneManager.LoadScene(0);
         Time.timeScale = 1;
-        IEnumerator coroutine = CONSTANTS.WaitAndLoad(0.4f, CONSTANTS.MAINMENU_SCENE_INDEX);
-        StartCoroutine(coroutine);
+        
     }
 
     // Resume Current Sceen
@@ -134,12 +136,10 @@ public class HUD : MonoBehaviour
     // Restart Current Sceen
     public void Restart()
     {
-
         StaticVariables.PlayerCurrentHP = 3;
-        StaticVariables.PlayerScore = 0;
         Time.timeScale = 1;
-        IEnumerator coroutine = CONSTANTS.WaitAndLoad(0.4f, SceneManager.GetActiveScene().buildIndex);
-        StartCoroutine(coroutine);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
 
@@ -167,7 +167,6 @@ public class HUD : MonoBehaviour
 
         popUpMenu.SetActive(!popUpMenu.activeInHierarchy);
         menu.SetActive(true);
-        settings.SetActive(false);
 
         if (popUpMenu.activeInHierarchy)
         {
@@ -219,9 +218,6 @@ public class HUD : MonoBehaviour
         return hudGameObject.GetComponent<HUD>();
 
     }
-
-
-
 
 
 }
