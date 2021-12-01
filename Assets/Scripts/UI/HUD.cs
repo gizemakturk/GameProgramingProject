@@ -34,7 +34,6 @@ public class HUD : MonoBehaviour
     private void Start()
     {
         
-        hud = this;
 
         popUpMenu.SetActive(false);
         popUpMenuDied.SetActive(false);
@@ -215,8 +214,8 @@ public class HUD : MonoBehaviour
     {
         if (hud != null)
             return hud;
-
-        return null;
+        GameObject hudGameObject = GameObject.Find("HUD"); 
+        return hudGameObject.GetComponent<HUD>();
 
     }
 

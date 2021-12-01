@@ -50,7 +50,7 @@ public class Player : Controller
 
     }
 
-
+    
 
 
     // This method getting input from player

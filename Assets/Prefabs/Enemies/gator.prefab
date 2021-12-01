@@ -140,13 +140,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8049270b83b80aa4c8e1ff92aa05543c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 0
+  acceleration: 2
   gravity: 0
-  friction: 0.5
-  maxVelocity: 3
+  friction: 0.1
+  maxVelocity: 1
   jump: 0
   jumpCD: 300
-  minSpeed: 0
+  minSpeed: 1
 --- !u!114 &3767507324602832838
 MonoBehaviour:
   m_ObjectHideFlags: 0

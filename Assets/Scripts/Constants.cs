@@ -9,7 +9,7 @@ public class CONSTANTS
     /* UI */
 
     public readonly static int INFO_SCENE_INDEX = INFO_SCENE();
-    public readonly static int MAINMENU_SCENE_INDEX = INFO_SCENE();
+    public readonly static int MAINMENU_SCENE_INDEX = 0;
 
     /* end UI*/
 

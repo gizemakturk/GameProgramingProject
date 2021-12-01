@@ -36,6 +36,10 @@ public class PlayerAttack : Attack
         {
 
             Damageability damageability = collision.gameObject.GetComponent<Damageability>();
+            if (damageability == null)
+            {
+                return;
+            }
             if (!damageability.Alive)
                 return;
 

@@ -118,6 +118,7 @@ public class Movement: MonoBehaviour, Feature
     public void GiveForce(int direction, float force)
     {
         rigidbody2D.AddForce(force * CONSTANTS.DIRECTIONS[direction]);
+        
     }
 
 

@@ -44,6 +44,7 @@ public class MobMovement : Movement
     //---------------------                          
 
 
+    private float fixer = 0.0001f;
 
     public void Start()
     {
@@ -113,6 +114,7 @@ public class MobMovement : Movement
         if (GetVelocity().x > -minSpeed && GetVelocity().x <= 0)
         {
             SetVelocity(0,minSpeed);
+            transform.Translate(-fixer, 0, 0, Space.World);
         }
 
         GiveForce(0,this.acceleration);
@@ -139,6 +141,7 @@ public class MobMovement : Movement
         if (GetVelocity().x < minSpeed && GetVelocity().x>=0)
         {
             SetVelocity(1, minSpeed);
+            transform.Translate(fixer, 0, 0, Space.World);
         }
 
         GiveForce(1, this.acceleration);
