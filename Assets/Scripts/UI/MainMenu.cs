@@ -21,12 +21,22 @@ public class MainMenu : MonoBehaviour
     // Load info scene then info scene load level 1
     public void StartGame() {
 
+        
+
         StaticVariables.PlayerCurrentHP = 3;
         InfoScene.InfoText = "Level 1";
         InfoScene.NextSceneIndex = 1;
         InfoScene.WaitTime = 1.5f;
-        SceneManager.LoadScene(CONSTANTS.INFO_SCENE_INDEX);
-        
+        IEnumerator coroutine = WaitAndLoad(0.4f, CONSTANTS.INFO_SCENE_INDEX);
+        StartCoroutine(coroutine);
+
+
+    }
+
+    private IEnumerator WaitAndLoad(float wait,int next)
+    {
+        yield return new WaitForSeconds(wait);
+        SceneManager.LoadScene(next);
     }
 
     public void ExitGame() {

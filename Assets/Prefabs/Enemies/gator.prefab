@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 3767507324602832895}
   - component: {fileID: 3767507324602832888}
   - component: {fileID: 3767507324602832838}
-  - component: {fileID: 3767507324602832837}
   - component: {fileID: 3767507324602832889}
   - component: {fileID: 3767507324602832894}
   - component: {fileID: 3767507324602832839}
+  - component: {fileID: 5241064058688304448}
   m_Layer: 8
   m_Name: gator
   m_TagString: Gator
@@ -161,24 +161,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   tossingTargetHorizontal: 4
-  tossingTargetUp: 4
+  tossingTargetUp: 2
   attackPower: 1
   cooldown: 1000
---- !u!114 &3767507324602832837
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3767507324602832893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3864d786bdfe252428fc3bacb76843a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHp: 1
-  currentHp: 1
-  waitForDestroy: 0.5
 --- !u!61 &3767507324602832889
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -238,6 +223,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ce5163237e07b54886d1fcecd662a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5241064058688304448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3767507324602832893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e6692afbb3f40479f6cea84f779d9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 1
+  currentHp: 1
+  waitForDestroy: 0.5
 --- !u!1001 &3767507323538364166
 PrefabInstance:
   m_ObjectHideFlags: 0

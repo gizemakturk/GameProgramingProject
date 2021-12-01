@@ -20,6 +20,7 @@ public class InfoScene : MonoBehaviour
     IEnumerator Start()
     {
 
+
         TMP_Text infoLabel = GetComponentInChildren<TMP_Text>();
         infoLabel.text = infoText;
         

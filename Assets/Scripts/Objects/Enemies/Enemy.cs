@@ -7,7 +7,7 @@ public abstract class Enemy : Controller
 
 
     private MobMovement movement;
-    private Damageability damageability;
+    private EnemyDamageability damageability;
     private Animation animation;
     private Attack attack;
 
@@ -17,7 +17,7 @@ public abstract class Enemy : Controller
 
 
     public MobMovement Movement { get => movement; set => movement = value; }
-    public Damageability Damageability { get => damageability; set => damageability = value; }
+    public EnemyDamageability Damageability { get => damageability; set => damageability = value; }
     public Animation Animation { get => animation; set => animation = value; }
     public Attack Attack { get => attack; set => attack = value; }
 
@@ -56,7 +56,7 @@ public abstract class Enemy : Controller
     {
 
         movement = GetComponent<MobMovement>();
-        damageability = GetComponent<Damageability>();
+        damageability = GetComponent<EnemyDamageability>();
         animation = GetComponent<Animation>();
         attack = GetComponent<EnemyAttack>();
 
