@@ -638,7 +638,13 @@ extern void U3CWaitAndLoadU3Ed__5_System_Collections_Generic_IEnumeratorU3CSyste
 extern void U3CWaitAndLoadU3Ed__5_System_Collections_IEnumerator_Reset_m1C6262CE3DBF1F10F3377C8CAF6AD6158119E6EC (void);
 // 0x0000013A System.Object MainMenu/<WaitAndLoad>d__5::System.Collections.IEnumerator.get_Current()
 extern void U3CWaitAndLoadU3Ed__5_System_Collections_IEnumerator_get_Current_m33A8932C31A836D7C0C26F88F81A2ABB98B268A3 (void);
-static Il2CppMethodPointer s_methodPointers[314] = 
+// 0x0000013B System.Void MovableText::Start()
+extern void MovableText_Start_m968AB85A9F5B46768211B143056725601D00E780 (void);
+// 0x0000013C System.Void MovableText::Update()
+extern void MovableText_Update_m1A32E39331BD648051EC1F86656CB4EF0A9D2525 (void);
+// 0x0000013D System.Void MovableText::.ctor()
+extern void MovableText__ctor_mB3EC84E710E6E88A8DF0A5849423735F87D3C9B6 (void);
+static Il2CppMethodPointer s_methodPointers[317] = 
 {
 	CONSTANTS_GetDirections_m823B21B4BEE6FF8DF1D93EFF9C126B5E7621E003,
 	CONSTANTS_GetEnemyChangeDirection_m0067CE9046595BFFE87BEBDBFF88434D8B30A9DA,
@@ -954,8 +960,11 @@ static Il2CppMethodPointer s_methodPointers[314] =
 	U3CWaitAndLoadU3Ed__5_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m21A52E32B8E6DCB991ED8C45442CCA92AFFEF83B,
 	U3CWaitAndLoadU3Ed__5_System_Collections_IEnumerator_Reset_m1C6262CE3DBF1F10F3377C8CAF6AD6158119E6EC,
 	U3CWaitAndLoadU3Ed__5_System_Collections_IEnumerator_get_Current_m33A8932C31A836D7C0C26F88F81A2ABB98B268A3,
+	MovableText_Start_m968AB85A9F5B46768211B143056725601D00E780,
+	MovableText_Update_m1A32E39331BD648051EC1F86656CB4EF0A9D2525,
+	MovableText__ctor_mB3EC84E710E6E88A8DF0A5849423735F87D3C9B6,
 };
-static const int32_t s_InvokerIndices[314] = 
+static const int32_t s_InvokerIndices[317] = 
 {
 	2369,
 	2369,
@@ -1271,13 +1280,16 @@ static const int32_t s_InvokerIndices[314] =
 	1496,
 	1538,
 	1496,
+	1538,
+	1538,
+	1538,
 };
 extern const CustomAttributesCacheGenerator g_AssemblyU2DCSharp_AttributeGenerators[];
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	314,
+	317,
 	s_methodPointers,
 	0,
 	NULL,

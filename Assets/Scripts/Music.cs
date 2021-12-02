@@ -15,7 +15,7 @@ public class Music : MonoBehaviour
     private static float currentMusicTime = 0f;
 
     public AudioSource levelMusic;
-    private float maxVolumeOflevelMusic = 0.5f;
+    private float maxVolumeOflevelMusic = 0.3f;
 
     public AudioSource mainMenuMusic;
     private float maxVolumeOfmainMenuMusic = 0.5f;
@@ -119,7 +119,7 @@ public class Music : MonoBehaviour
     public void HurtEffect2(Vector2 source)
     {
         AudioSource[] temp = effects.GetComponentsInChildren<AudioSource>();
-        temp[2].volume = StaticVariables.Sound * SoundDistanceCalculator(source) * maxVolumeOfEffects*0.5f;
+        temp[2].volume = StaticVariables.Sound * SoundDistanceCalculator(source) * maxVolumeOfEffects*2.7f;
         temp[2].Play();
     }
 
