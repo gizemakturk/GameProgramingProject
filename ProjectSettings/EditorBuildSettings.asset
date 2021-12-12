@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InfoScene.unity
     guid: 1393fdf67ce6f404281e415639ee11b8
+  - enabled: 1
+    path: Assets/Scenes/SendScore.unity
+    guid: b98f320aa4644e942a5e72b157cc8b29
   m_configObjects: {}

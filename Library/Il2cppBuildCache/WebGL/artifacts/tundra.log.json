@@ -1,6 +1,3 @@
-{"msg":"init","dagFile":"artifacts\\tundra.dag","targets":[]}
-{"msg":"enqueueNode","enqueuedNodeAnnotation":"all_tundra_nodes","enqueuedNodeIndex":0}
-{"msg":"enqueueNode","enqueuedNodeAnnotation":"WriteResponseFile artifacts/rsp/2197242791594757995.rsp","enqueuedNodeIndex":1,"enqueueingNodeAnnotation":"all_tundra_nodes","enqueueingNodeIndex":0}
-{"msg":"enqueueNode","enqueuedNodeAnnotation":"Il2Cpp C:/Users/Ozan/Desktop/GameProject-main/GameProject2/Library/Il2cppBuildCache/WebGL/Native/build.bc","enqueuedNodeIndex":2,"enqueueingNodeAnnotation":"all_tundra_nodes","enqueueingNodeIndex":0}
-{"msg":"inputSignatureChanged","annotation":"Il2Cpp C:/Users/Ozan/Desktop/GameProject-main/GameProject2/Library/Il2cppBuildCache/WebGL/Native/build.bc","index":2,"changes":[{"key":"InputFileDigest","path":"C:\\Users\\Ozan\\Desktop\\GameProject-main\\GameProject2\\Temp\\StagingArea\\Data\\Managed\\Assembly-CSharp.dll","dependency":"explicit"}]}
-{"msg":"noderesult","annotation":"Il2Cpp C:/Users/Ozan/Desktop/GameProject-main/GameProject2/Library/Il2cppBuildCache/WebGL/Native/build.bc","index":2,"exitcode":0}
+version https://git-lfs.github.com/spec/v1
+oid sha256:5b5caf364c234f61523c3a8846ef8cf770c19808d49f1b9e11cd95ad733bc611
+size 1148

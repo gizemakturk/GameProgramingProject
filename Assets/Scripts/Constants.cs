@@ -8,8 +8,9 @@ public class CONSTANTS
 
     /* UI */
 
-    public readonly static int INFO_SCENE_INDEX = INFO_SCENE();
+    public readonly static int SENDSCORE_SCENE_INDEX = SENDSCORE_SCENE();
     public readonly static int MAINMENU_SCENE_INDEX = 0;
+    public readonly static int INFO_SCENE_INDEX = INFO_SCENE();
 
     /* end UI*/
 
@@ -172,9 +173,13 @@ public class CONSTANTS
     
     private static int INFO_SCENE()
     {
-        return SceneManager.sceneCountInBuildSettings - 1;
+        return SceneManager.sceneCountInBuildSettings - 2;
     }
 
+    private static int SENDSCORE_SCENE()
+    {
+        return SceneManager.sceneCountInBuildSettings - 1;
+    }
 
     public static IEnumerator WaitAndLoad(float wait, int next)
     {

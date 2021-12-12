@@ -147,7 +147,7 @@ public class Player : Controller
             if (CONSTANTS.INFO_SCENE_INDEX == InfoScene.NextSceneIndex)
             {
                 InfoScene.InfoText = "YOU WIN";
-                InfoScene.NextSceneIndex = CONSTANTS.MAINMENU_SCENE_INDEX;
+                InfoScene.NextSceneIndex = CONSTANTS.SENDSCORE_SCENE_INDEX;
             }
             else
                 InfoScene.InfoText = "Level " + (InfoScene.NextSceneIndex);

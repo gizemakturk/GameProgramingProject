@@ -1,24 +1,3 @@
-﻿using Unity.Plastic.Newtonsoft.Json;
-
-using PlasticGui.WebApi.Responses;
-
-namespace Unity.PlasticSCM.Editor.WebApi
-{
-    /// <summary>
-    /// Response to Unity Package beta enrollment request.
-    /// </summary>
-    public class UnityPackageBetaEnrollResponse
-    {
-        /// <summary>
-        /// Error caused by the request.
-        /// </summary>
-        [JsonProperty("error")]
-        public ErrorResponse.ErrorFields Error { get; set; }
-
-        /// <summary>
-        /// Whether the beta is enabled.
-        /// </summary>
-        [JsonProperty("isBetaEnabled")]
-        public bool IsBetaEnabled { get; set; }
-    }
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:dba9e088dc7a8975d6d12c3b538095604c8771ef10650ecf7b218885ebbe832d
+size 632
