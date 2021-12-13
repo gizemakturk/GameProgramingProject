@@ -7,48 +7,50 @@ using UnityEngine.SceneManagement;
 
 public class DBController : MonoBehaviour
 {
+
+
+    public static string leaderBoard = "";
+
+
     
-    
-    public InputField name;
-    public TMP_Text scoreLabel;
-
-    public static string leaderBoard="";
-
-    private void Start()
-    {
-        scoreLabel.text = StaticVariables.PlayerScore.ToString();
-    }
-
-    public void LoadLeaderBoard()
+    public void LoadLeaderBoardButton()
     {
         
         StartCoroutine(LoadScores());
     }
 
+
     public void SaveScoreButton()
     {
-        StartCoroutine(SaveScore(name.text,StaticVariables.PlayerScore));
+
+        StartCoroutine(SaveScore(StaticVariables.name,StaticVariables.PlayerScore));
+
     }
 
+
+    
     public IEnumerator SaveScore(string userName, int score)
     {
+        // Creating Post requst
         WWWForm form = new WWWForm();
         form.AddField("unity", "Save_Score");
         form.AddField("userName", userName);
         form.AddField("score", score);
 
-        using (UnityWebRequest www = UnityWebRequest.Post("ozantekce.com/userRegister.php", form))
+        // request is sending
+        using (UnityWebRequest www = UnityWebRequest.Post("ozantekce.com/UnityDB.php", form))
         {
+            
             yield return www.SendWebRequest();
-
+            
+            
             if (www.result != UnityWebRequest.Result.Success)
             {
                 Debug.Log(www.error);
             }
             else
             {
-                Debug.Log("Form upload complete!");
-                Debug.Log("\n"+www.downloadHandler.text);
+                //Debug.Log("\n"+www.downloadHandler.text);
             }
 
         }
@@ -61,11 +63,13 @@ public class DBController : MonoBehaviour
 
     public IEnumerator LoadScores()
     {
+        // Creating Post requst
         WWWForm form = new WWWForm();
         form.AddField("unity", "Load_Scores");
-
-        using (UnityWebRequest www = UnityWebRequest.Post("http://www.ozantekce.com/userRegister.php", form))
+        // request is sending
+        using (UnityWebRequest www = UnityWebRequest.Post("ozantekce.com/UnityDB.php", form))
         {
+
             yield return www.SendWebRequest();
 
             if (www.result != UnityWebRequest.Result.Success)
@@ -74,12 +78,10 @@ public class DBController : MonoBehaviour
             }
             else
             {
-
-                Debug.Log("Form upload complete!");
                 string data = www.downloadHandler.text;
                 data = data.Replace("|", "\t");
                 data = data.Replace("*", "\n");
-                Debug.Log("\n" + data);
+                //Debug.Log("\n" + data);
                 leaderBoard = data;
 
             }
@@ -96,6 +98,7 @@ public class DBController : MonoBehaviour
         yield return new WaitForSeconds(wait);
         SceneManager.LoadScene(CONSTANTS.MAINMENU_SCENE_INDEX);
     }
+
 
 
 }

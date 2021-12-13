@@ -220,7 +220,19 @@ MonoBehaviour:
       m_Calls: []
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1530029896}
+        m_TargetAssemblyTypeName: SendScore, Assembly-CSharp
+        m_MethodName: ChangeName
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_CaretColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_CustomCaretColor: 0
   m_SelectionColor: {r: 0.65882355, g: 0.80784315, b: 1, a: 0.7529412}
@@ -835,7 +847,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 2be7b70e984b51444aca9c12ae4723a7, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -999,6 +1011,7 @@ GameObject:
   - component: {fileID: 1530029893}
   - component: {fileID: 1530029892}
   - component: {fileID: 1530029895}
+  - component: {fileID: 1530029896}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -1084,6 +1097,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4aba3b1d549894687b882761e3e4e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1530029896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530029891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fc3a2705980274f9a94104e1d71be6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   name: {fileID: 139835986}
   scoreLabel: {fileID: 792342175}
 --- !u!1 &1558622645
@@ -1145,15 +1170,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: SEND
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: adaa256d10c44a14b8ac951693500adb, type: 2}
+  m_sharedMaterial: {fileID: 625834450373649280, guid: adaa256d10c44a14b8ac951693500adb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1176,7 +1201,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

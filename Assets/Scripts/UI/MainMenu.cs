@@ -9,7 +9,8 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public TMP_Text infoLabel;
+
+    public DBController DB;
 
     public GameObject mainMenu;
     public GameObject options;
@@ -25,12 +26,29 @@ public class MainMenu : MonoBehaviour
     }
 
 
-    
+    // Leaderboard açýk ise günceller 
+    float wait = 0;
+    private void Update()
+    {
+        wait += Time.deltaTime;
+
+        if (leaderboardLabel.text == "" || (wait > 0.7f && leaderboard.active))
+        {
+
+            DB.LoadLeaderBoardButton();
+            leaderboardLabel.text = DBController.leaderBoard;
+            wait = 0;
+        }
+            
+
+
+    }
+
+
 
     // Load info scene then info scene load level 1
     public void StartGame() {
 
-        
 
         StaticVariables.PlayerCurrentHP = 3;
         InfoScene.InfoText = "Level 1";
@@ -76,7 +94,7 @@ public class MainMenu : MonoBehaviour
 
         leaderboard.SetActive(true);
         mainMenu.SetActive(false);
-        LoadLeaderBoard();
+        DB.LoadLeaderBoardButton();
 
     }
 
@@ -86,72 +104,7 @@ public class MainMenu : MonoBehaviour
         StaticVariables.Sound = slider.value;
 
     }
-
-    public void LoadLeaderBoard()
-    {
-
-        StartCoroutine(LoadScores());
-    }
-    public IEnumerator LoadScores()
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("unity", "Load_Scores");
-
-        using (UnityWebRequest www = UnityWebRequest.Post("ozantekce.com/userRegister.php", form))
-        {
-            yield return www.SendWebRequest();
-
-            float timer = 0;
-            while (timer < 300)
-            {
-                
-                timer += Time.deltaTime;
-                
-            }
-
-            if (www.result != UnityWebRequest.Result.Success)
-            {
-                Debug.Log(www.error);
-                infoLabel.text = www.error;
-            }
-            else
-            {
-
-                Debug.Log("Form upload complete!");
-                string data = www.downloadHandler.text;
-                data = data.Replace("*", "\n");
-                data = data.Replace("|", "\t");
-                Debug.Log("\n" + data);
-
-                infoLabel.text = data;
-                leaderboardLabel.text = data;
-
-            }
-
-        }
-
-
-    }
-
-
-
-    public InputField score;
-
-    public void Send()
-    {
-
-
-
-        StaticVariables.PlayerCurrentHP = 3;
-        InfoScene.InfoText = "Level 1";
-        InfoScene.NextSceneIndex = 1;
-        InfoScene.WaitTime = 1.5f;
-        StaticVariables.PlayerScore = int.Parse(score.text);
-        IEnumerator coroutine = WaitAndLoad(0.4f,CONSTANTS.SENDSCORE_SCENE_INDEX);
-        StartCoroutine(coroutine);
-
-
-    }
+    
 
 
 

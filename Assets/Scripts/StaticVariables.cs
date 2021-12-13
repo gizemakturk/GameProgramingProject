@@ -3,6 +3,8 @@ using UnityEngine.UI;
 public static class StaticVariables
 {
 
+
+    public static string name;
     
     private static int playerCurrentHP = 3;
     private static int playerScore=0;
