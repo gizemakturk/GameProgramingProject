@@ -26,13 +26,14 @@ public class Player : Controller
 
     public void Start()
     {
+        
         jumpCooldown = new Cooldown(cdJump);
         movement = GetComponent<PlayerMovement>();
         damageability = GetComponent<PlayerDamageability>();
         animation = GetComponent<PlayerAnimation>();
 
         damageability.currentHp = StaticVariables.PlayerCurrentHP;
-
+        print(damageability.currentHp);
         UpdateHpBar();
 
     }  

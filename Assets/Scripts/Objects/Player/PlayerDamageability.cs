@@ -39,7 +39,6 @@ public class PlayerDamageability : Damageability
         Music.GETMUSIC().HurtEffect1(transform.position);
         base.TakeDamage(val);
         StaticVariables.PlayerCurrentHP = currentHp;
-
         if(currentHp<=0)
             Music.GETMUSIC().LostEffect(transform.position);
 

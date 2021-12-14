@@ -33,7 +33,7 @@ public class HUD : MonoBehaviour
 
     private void Start()
     {
-        
+
 
         popUpMenu.SetActive(false);
         popUpMenuDied.SetActive(false);
@@ -55,12 +55,17 @@ public class HUD : MonoBehaviour
     private void FixedUpdate()
     {
 
+
         // If the time is over, the player dies
         if (ControlMaxTime())
         {
+            if (StaticVariables.PlayerCurrentHP != 0)
+            {
 
-            StaticVariables.ChangeHp(0);
-            
+                StaticVariables.ChangeHp(0);
+            }
+                
+
         }
         else
         {
@@ -135,6 +140,7 @@ public class HUD : MonoBehaviour
     public void Restart()
     {
 
+        currentTime = 0;
         StaticVariables.PlayerCurrentHP = 3;
         StaticVariables.PlayerScore = 0;
         Time.timeScale = 1;
