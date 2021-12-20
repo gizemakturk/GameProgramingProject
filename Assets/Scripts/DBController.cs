@@ -29,8 +29,13 @@ public class DBController : MonoBehaviour
 
 
     
+    private static bool fixer = true;
+
     public IEnumerator SaveScore(string userName, int score)
     {
+
+        
+
         // Creating Post requst
         WWWForm form = new WWWForm();
         form.AddField("unity", "Save_Score");
@@ -38,25 +43,31 @@ public class DBController : MonoBehaviour
         form.AddField("score", score);
 
         // request is sending
-        using (UnityWebRequest www = UnityWebRequest.Post("ozantekce.com/UnityDB.php", form))
+        if (fixer)
         {
-            
-            yield return www.SendWebRequest();
-            
-            
-            if (www.result != UnityWebRequest.Result.Success)
+            fixer = false;
+            using (UnityWebRequest www = UnityWebRequest.Post("ozantekce.com/UnityDB.php", form))
             {
-                Debug.Log(www.error);
+                print("hi");
+                yield return www.SendWebRequest();
+
+
+                if (www.result != UnityWebRequest.Result.Success)
+                {
+                    Debug.Log(www.error);
+                }
+                else
+                {
+                    //Debug.Log("\n"+www.downloadHandler.text);
+                }
+
             }
-            else
-            {
-                //Debug.Log("\n"+www.downloadHandler.text);
-            }
+
+            IEnumerator coroutine = WaitAndLoad(0.1f);
+            StartCoroutine(coroutine);
 
         }
 
-        IEnumerator coroutine = WaitAndLoad(0.1f);
-        StartCoroutine(coroutine);
 
     }
 
@@ -94,9 +105,12 @@ public class DBController : MonoBehaviour
 
 
     private IEnumerator WaitAndLoad(float wait)
-    {
+    {   
+
         yield return new WaitForSeconds(wait);
         SceneManager.LoadScene(CONSTANTS.MAINMENU_SCENE_INDEX);
+        fixer = true;
+
     }
 
 

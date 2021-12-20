@@ -57,8 +57,13 @@ public class Damageability :MonoBehaviour, Feature
                     Destroy(this.gameObject);
                 else
                 {
-                    
-                    HUD.GETHUD().popUpMenuDied.SetActive(true);
+
+                    //HUD.GETHUD().popUpMenuDied.SetActive(true);
+                    InfoScene.NextSceneIndex = CONSTANTS.SENDSCORE_SCENE_INDEX;
+                    InfoScene.InfoText = "GAME OVER";
+                    InfoScene.WaitTime = 1.5f;
+                    IEnumerator coroutine = CONSTANTS.WaitAndLoad(0.9f, CONSTANTS.INFO_SCENE_INDEX);
+                    StartCoroutine(coroutine);
                 }
 
             }

@@ -30,6 +30,7 @@ public class MainMenu : MonoBehaviour
     float wait = 0;
     private void Update()
     {
+
         wait += Time.deltaTime;
 
         if (leaderboardLabel.text == "" || (wait > 0.7f && leaderboard.active))
@@ -51,9 +52,11 @@ public class MainMenu : MonoBehaviour
 
 
         StaticVariables.PlayerCurrentHP = 3;
+        StaticVariables.PlayerScore = 0;
         InfoScene.InfoText = "Level 1";
         InfoScene.NextSceneIndex = 1;
         InfoScene.WaitTime = 1.5f;
+
         IEnumerator coroutine = WaitAndLoad(0.4f, CONSTANTS.INFO_SCENE_INDEX);
         StartCoroutine(coroutine);
 

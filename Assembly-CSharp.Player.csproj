@@ -56,6 +56,7 @@
     <Compile Include="Assets\Scripts\Objects\Other\EndOfMap.cs" />
     <Compile Include="Assets\Scripts\Features\Damageability.cs" />
     <Compile Include="Assets\Scripts\UI\InfoScene.cs" />
+    <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
     <Compile Include="Assets\Scripts\Objects\Other\Bound\DownBound.cs" />
     <Compile Include="Assets\Scripts\UI\SendScore.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Grasshopper\GrasshopperAnimator.cs" />
@@ -97,7 +98,18 @@
     <Compile Include="Assets\Scripts\Constants.cs" />
     <Compile Include="Assets\Scripts\Objects\Enemies\Grasshopper\Grasshopper.cs" />
     <Compile Include="Assets\Scripts\Cooldown.cs" />
-    <Compile Include="Assets\Fonts\Script\scriptTexttest.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Sample\AutoRotate.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\miniJSON.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\FirebaseManager.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\FirebaseQueue.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\FirebaseError.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Sample\MoveControl.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\FirebaseParam.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\Firebase.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Sample\SampleScript.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\DataSnapshot.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\FirebaseRoot.cs" />
+    <Compile Include="Assets\SimpleFirebaseUnity\Scripts\FirebaseObserver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -117,6 +129,7 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Fonts\Documentation\JazzCreateBubble_VersionHistory_1.1.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\SimpleFirebaseUnity\Plugins\Android\AndroidManifest.xml" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
